@@ -1,5 +1,6 @@
 extends Node
 
+#test
 var health: Label
 var strength: Label
 var speed: Label
