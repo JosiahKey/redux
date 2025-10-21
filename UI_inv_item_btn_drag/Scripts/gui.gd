@@ -6,12 +6,12 @@ var InvSize = 24
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in InvSize:
-		var slot := InventorySlot.new()
-		slot.init(ItemData.Type.MAIN, Vector2(32,32))
+		var slot := InventorySlotTest.new()
+		slot.init(ItemDataTest.Type.GENERAL, Vector2(32,32))
 		%MenuGrid.add_child(slot)
 		
 	for j in itemsLoad.size():
-		var item := InventoryItem.new()
+		var item := InventoryItemTest.new()
 		item.init(itemsLoad[j])
 		%MenuGrid.get_child(j).add_child(item)
 

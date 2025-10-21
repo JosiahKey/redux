@@ -1,7 +1,7 @@
-class_name ItemData
+class_name ItemDataTest
 extends Resource
 
-enum Type {HEAD, CHEST, PENIS, MAIN}
+enum Type {HEAD, CHEST, PENIS, GENERAL}
 
 @export var type: Type
 @export var name:String

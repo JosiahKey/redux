@@ -1,9 +1,9 @@
-class_name InventoryItem
+class_name InventoryItemTest
 extends TextureRect
 
-@export var data: ItemData
+@export var data: ItemDataTest
 
-func init(d: ItemData) -> void:
+func init(d: ItemDataTest) -> void:
 	data = d
 
 func _ready() -> void:

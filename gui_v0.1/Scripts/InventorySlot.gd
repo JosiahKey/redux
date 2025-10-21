@@ -9,7 +9,7 @@ func init(t: ItemData2.Type, cms: Vector2) -> void:
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	if data is InventoryItem2:
-		if type == ItemData2.Type.MAIN:
+		if type == ItemData2.Type.GENERAL:
 			if get_child_count() == 0:
 				return true
 			else: if type == data.get_parent().type:

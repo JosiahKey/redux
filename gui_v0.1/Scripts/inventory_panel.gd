@@ -8,7 +8,7 @@ var InvSize = 24
 func _ready() -> void:
 	for i in InvSize:
 		var slot := InventorySlot2.new()
-		slot.init(ItemData2.Type.MAIN, Vector2(32,32))
+		slot.init(ItemData2.Type.GENERAL, Vector2(32,32))
 		Grid_ref.add_child(slot)
 		
 	for j in itemsLoad.size():
