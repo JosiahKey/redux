@@ -1,8 +1,9 @@
-extends NinePatchRect
+extends Node
 
-@onready var health := $Stat_Grid/Health_Points_Stat_Label/stat_num
-@onready var strength := $Stat_Grid/Strength_Stat_Label/stat_num
-@onready var speed := $Stat_Grid/Speed_Stat_Label/stat_num
+var health: Label
+var strength: Label
+var speed: Label
+var damage: Label
 
 var stats = {
 	"hp_max": 500,
@@ -11,7 +12,11 @@ var stats = {
 	"speed": 10,
 }
 
-func _ready() -> void:
+func set_stat_labels(h: Label, st: Label, sp: Label, d: Label):
+	health = h
+	strength = st
+	speed = sp
+	damage = d
 	update_stats(0,0,0,0)
 
 func get_stat(stat: String):
@@ -33,3 +38,7 @@ func _update_stat_panel():
 	health.text = str(stats["hp_max"])
 	strength.text = str(stats["strength"])
 	speed.text = str(stats["speed"])
+
+func _calculate_damage() -> Vector2:
+	
+	return Vector2(0,0)

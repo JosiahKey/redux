@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5oqm5bsmnub4"]
+[gd_scene load_steps=13 format=3 uid="uid://b5oqm5bsmnub4"]
 
 [ext_resource type="Script" path="res://gui_v0.1/Scripts/gui.gd" id="1_gacmr"]
 [ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="4_lhedw"]
@@ -8,10 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://naqv6e3xpnt1" path="res://gui_v0.1/Assets/x_disabled.png" id="8_3c0ky"]
 [ext_resource type="PackedScene" uid="uid://1nyyqt37d4i0" path="res://gui_v0.1/scenes/equip_panel.tscn" id="9_2wia0"]
 [ext_resource type="PackedScene" uid="uid://d4fs67c6gbivw" path="res://gui_v0.1/scenes/Inventory_Panel.tscn" id="9_3xo2u"]
-[ext_resource type="PackedScene" uid="uid://7fcicef1nrb" path="res://gui_v0.1/scenes/stat_window.tscn" id="10_m1ijt"]
+[ext_resource type="Resource" uid="uid://btu1jbnpa1d" path="res://gui_v0.1/Resources/spear.tres" id="10_jfh37"]
+[ext_resource type="PackedScene" uid="uid://7fcicef1nrb" path="res://gui_v0.1/scenes/stat_panel.tscn" id="10_m1ijt"]
+[ext_resource type="Resource" uid="uid://cpcvf6xjhd3w" path="res://gui_v0.1/Resources/sword.tres" id="11_rsy16"]
+[ext_resource type="Resource" uid="uid://ctrxo02wphghg" path="res://gui_v0.1/Resources/axe.tres" id="12_ry7mw"]
 
 [node name="GUI" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_gacmr")
 
 [node name="MenuRect" type="NinePatchRect" parent="."]
@@ -58,12 +60,17 @@ grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_lock_ = true
 
-[node name="Stat_Window" parent="MenuRect" instance=ExtResource("10_m1ijt")]
-layout_mode = 1
+[node name="Stat_Panel" parent="MenuRect" instance=ExtResource("10_m1ijt")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 448.0
 offset_top = 64.0
-offset_right = -128.0
-offset_bottom = -256.0
+offset_right = 832.0
+offset_bottom = 320.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Inventory_Panel" parent="MenuRect" instance=ExtResource("9_3xo2u")]
 layout_mode = 1
@@ -71,5 +78,6 @@ offset_left = 448.0
 offset_top = 384.0
 offset_right = -128.0
 offset_bottom = -64.0
+itemsLoad = Array[Resource]([ExtResource("10_jfh37"), ExtResource("11_rsy16"), ExtResource("11_rsy16"), ExtResource("12_ry7mw")])
 
 [connection signal="pressed" from="MenuRect/MenuClose" to="." method="_on_menu_close_pressed"]

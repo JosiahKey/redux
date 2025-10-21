@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData2" load_steps=3 format=3 uid="uid://btu1jbnpa1d"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://btu1jbnpa1d"]
 
 [ext_resource type="Script" path="res://gui_v0.1/Scripts/ItemData.gd" id="1_3xa1j"]
 [ext_resource type="Texture2D" uid="uid://dmjlmxiwccqun" path="res://gui_v0.1/Assets/spear_legendary.png" id="2_srfps"]
@@ -8,3 +8,12 @@ script = ExtResource("1_3xa1j")
 type = 3
 name = "spear"
 texture = ExtResource("2_srfps")
+damage_min = 2
+damage_max = 3
+min_Strength = 2
+weight = 2
+commonMulti = 0.0
+uncommonMulti = 0.0
+rareMulti = 0.0
+epicMulti = 0.0
+legendaryMulti = 0.0

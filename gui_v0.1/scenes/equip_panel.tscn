@@ -123,10 +123,10 @@ type = 3
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("2_767ir")
-type = 3
+type = 4
 
 [node name="Equip_Slot10" type="PanelContainer" parent="GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("2_767ir")
-type = 3
+type = 4
