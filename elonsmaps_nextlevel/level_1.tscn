@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://crxhkx7kaesu1"]
+
+[ext_resource type="PackedScene" uid="uid://ysyt6jkhosyo" path="res://elonsmaps_nextlevel/subscenes/player/player.tscn" id="1_0pnoo"]
+[ext_resource type="Script" path="res://elonsmaps_nextlevel/main.gd" id="1_dr2x8"]
+[ext_resource type="PackedScene" uid="uid://doefc7txcmbjo" path="res://elonsmaps_nextlevel/subscenes/level_1_tiles.tscn" id="2_74fpf"]
+[ext_resource type="PackedScene" uid="uid://bw01h7n7xhbuk" path="res://elonsmaps_nextlevel/subscenes/nextlevel/next_level.tscn" id="2_hjnmk"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_dr2x8")
+
+[node name="Level1" type="Node2D" parent="."]
+
+[node name="level_1_tiles" parent="Level1" instance=ExtResource("2_74fpf")]
+
+[node name="Player" parent="Level1" groups=["Player"] instance=ExtResource("1_0pnoo")]
+position = Vector2(144, 304)
+
+[node name="next_level" parent="Level1" instance=ExtResource("2_hjnmk")]
+position = Vector2(656, 728)
+scale = Vector2(1.96, 1)
+
+[connection signal="load_area_entered" from="Level1/next_level" to="." method="_on_next_level_load_area_entered"]

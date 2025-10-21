@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu1aj0yc1vbuc"]
+
+[ext_resource type="Script" path="res://_autoload_ui/statbloc.gd" id="1_d6ajp"]
+[ext_resource type="Texture2D" uid="uid://d2q33qy11h150" path="res://zAssets/Menu/Globe_filled.png" id="2_5v7tt"]
+[ext_resource type="Texture2D" uid="uid://dv36lwh8ugmnc" path="res://zAssets/Menu/WhiteCircle.png" id="3_ob0k7"]
+[ext_resource type="Texture2D" uid="uid://kfvsg48io3bf" path="res://zAssets/Menu/Globe_transparent.png" id="4_geb4q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxwvx"]
+font_color = Color(1, 0.117647, 0.0235294, 1)
+outline_size = 4
+outline_color = Color(0.051971, 0.051971, 0.051971, 1)
+
+[node name="Statbloc_UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_d6ajp")
+
+[node name="HealthText" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 440.0
+offset_right = 104.0
+offset_bottom = 464.0
+label_settings = SubResource("LabelSettings_dxwvx")
+
+[node name="HealthGlobe" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -184.0
+offset_right = 184.0
+grow_vertical = 0
+
+[node name="GlobeFull" type="TextureRect" parent="HealthGlobe"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5v7tt")
+expand_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthGlobe/GlobeFull"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 80.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("3_ob0k7")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="GlobeTransparent" type="TextureRect" parent="HealthGlobe"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_geb4q")
+expand_mode = 2

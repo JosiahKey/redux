@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkvradhtp25pj"]
+
+[ext_resource type="Script" path="res://_debug/inventory_ui.gd" id="1_c8mgc"]
+[ext_resource type="Texture2D" uid="uid://bqp1lksqtiy46" path="res://zAssets/Menu/combat_border.png" id="2_0n41h"]
+
+[node name="Inventory_UI" type="CanvasLayer"]
+script = ExtResource("1_c8mgc")
+
+[node name="Item_List" type="VBoxContainer" parent="."]
+offset_left = 85.0
+offset_top = 138.0
+offset_right = 289.0
+offset_bottom = 322.0
+mouse_filter = 2
+
+[node name="showhide" type="Button" parent="."]
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+icon = ExtResource("2_0n41h")
+
+[connection signal="pressed" from="showhide" to="." method="_on_button_pressed"]

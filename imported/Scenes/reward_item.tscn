@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnbtfoetudd5y"]
+
+[ext_resource type="Script" path="res://Scenes/reward_item.gd" id="1_2i0qf"]
+[ext_resource type="Texture2D" uid="uid://b2mx8q15j8y0p" path="res://zAssets/Menu/item_slot.png" id="2_3xypm"]
+[ext_resource type="Texture2D" uid="uid://hyciqa01lhe" path="res://zAssets/Items/big_hammer_epic.png" id="3_4bcle"]
+
+[node name="new item" type="Button"]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2i0qf")
+
+[node name="btn_texture" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3xypm")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 16)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_4bcle")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -11.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "this is a potion reward. +5 hp"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

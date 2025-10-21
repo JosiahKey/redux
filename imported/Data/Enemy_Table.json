@@ -1,0 +1,32 @@
+{
+  "2001": {
+	"name": "pinkslime",
+	"hp": 50,
+	"attack": 5,
+	"commonMulti": 1,
+	"uncommonMulti": 1.15,
+	"rareMulti": 1.4,
+	"epicMulti": 1.8,
+	"legendaryMulti": 2.4
+  },
+  "2002": {
+	"name": "greenslime",
+	"hp": 100,
+	"attack": 10,
+	"commonMulti": 1,
+	"uncommonMulti": 1.15,
+	"rareMulti": 1.4,
+	"epicMulti": 1.8,
+	"legendaryMulti": 2.4
+  },
+  "2003": {
+	"name": "funguy",
+	"hp": 1,
+	"attack": -20,
+	"commonMulti": 1,
+	"uncommonMulti": 1.15,
+	"rareMulti": 1.4,
+	"epicMulti": 1.8,
+	"legendaryMulti": 2.4
+  }
+}

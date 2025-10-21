@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://eanbww4yqyiq"]
+
+[node name="tiers" type="GridContainer"]
+size_flags_horizontal = 4
+columns = 4

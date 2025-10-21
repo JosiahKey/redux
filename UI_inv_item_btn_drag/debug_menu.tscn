@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://cd21wl2gy7cno"]
+
+[ext_resource type="Script" path="res://UI_inv_item_btn_drag/Scripts/gui.gd" id="1_qoj0s"]
+[ext_resource type="Resource" uid="uid://cu5m52wwidiq0" path="res://UI_inv_item_btn_drag/Resources/spear.tres" id="2_v4ywn"]
+[ext_resource type="Resource" uid="uid://ut0c33wejg74" path="res://UI_inv_item_btn_drag/Resources/sword.tres" id="3_me3vx"]
+[ext_resource type="Texture2D" uid="uid://cl45mghcdduiu" path="res://UI_inv_item_btn_drag/Assets/x_normal.png" id="4_cm1sy"]
+[ext_resource type="Texture2D" uid="uid://bg6qvcnhpvs3g" path="res://UI_inv_item_btn_drag/Assets/x_pressed.png" id="5_lbbvo"]
+[ext_resource type="Texture2D" uid="uid://bbunoh40chyjm" path="res://UI_inv_item_btn_drag/Assets/x_hover.png" id="6_lcxo1"]
+[ext_resource type="Texture2D" uid="uid://bp32fmbn02hhj" path="res://UI_inv_item_btn_drag/Assets/x_disabled.png" id="7_04iqj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d6a2n"]
+load_path = "res://.godot/imported/main panel.png-33c9538169aa39cbaef70f70fef05c89.ctex"
+
+[node name="debug_menu" type="Node2D"]
+position = Vector2(576, 320)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource("1_qoj0s")
+itemsLoad = Array[Resource]([ExtResource("2_v4ywn"), ExtResource("3_me3vx")])
+
+[node name="dubug_inventory" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 280.0
+offset_top = 152.0
+offset_right = 1064.0
+offset_bottom = 488.0
+
+[node name="MenuRect" type="NinePatchRect" parent="GUI/dubug_inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_d6a2n")
+region_rect = Rect2(2, 2, 28, 28)
+patch_margin_left = 21
+patch_margin_top = 7
+patch_margin_right = 21
+patch_margin_bottom = 7
+
+[node name="MenuGrid" type="GridContainer" parent="GUI/dubug_inventory/MenuRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -496.0
+offset_top = -240.0
+offset_right = -48.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 5
+
+[node name="MenuClose" type="TextureButton" parent="GUI/dubug_inventory"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_bottom = 17.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_cm1sy")
+texture_pressed = ExtResource("5_lbbvo")
+texture_hover = ExtResource("6_lcxo1")
+texture_disabled = ExtResource("7_04iqj")
+stretch_mode = 0
+
+[connection signal="pressed" from="GUI/dubug_inventory/MenuClose" to="GUI" method="_on_menu_close_pressed"]

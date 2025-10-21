@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm6b7y0lxjtx3"]
+
+[ext_resource type="Script" path="res://random_tree_thing/Scenes/room_map.gd" id="1_g6y5g"]
+
+[node name="room_map" type="Node2D"]
+script = ExtResource("1_g6y5g")
+
+[node name="master_layout" type="GridContainer" parent="."]
+offset_right = 172.0
+offset_bottom = 172.0
+
+[node name="World" type="Node2D" parent="."]

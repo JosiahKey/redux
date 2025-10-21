@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5oqm5bsmnub4"]
+
+[ext_resource type="Script" path="res://gui_v0.1/Scripts/gui.gd" id="1_gacmr"]
+[ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="4_lhedw"]
+[ext_resource type="Texture2D" uid="uid://oq3aek8koij2" path="res://gui_v0.1/Assets/x_normal.png" id="5_3bdr1"]
+[ext_resource type="Texture2D" uid="uid://bq0q3847gwgd4" path="res://gui_v0.1/Assets/x_pressed.png" id="6_nawqr"]
+[ext_resource type="Texture2D" uid="uid://c2dacj33vfcyo" path="res://gui_v0.1/Assets/x_hover.png" id="7_ioo3w"]
+[ext_resource type="Texture2D" uid="uid://naqv6e3xpnt1" path="res://gui_v0.1/Assets/x_disabled.png" id="8_3c0ky"]
+[ext_resource type="PackedScene" uid="uid://1nyyqt37d4i0" path="res://gui_v0.1/scenes/equip_panel.tscn" id="9_2wia0"]
+[ext_resource type="PackedScene" uid="uid://d4fs67c6gbivw" path="res://gui_v0.1/scenes/Inventory_Panel.tscn" id="9_3xo2u"]
+[ext_resource type="PackedScene" uid="uid://7fcicef1nrb" path="res://gui_v0.1/scenes/stat_window.tscn" id="10_m1ijt"]
+
+[node name="GUI" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_gacmr")
+
+[node name="MenuRect" type="NinePatchRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = -56.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_lhedw")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 20
+patch_margin_top = 12
+patch_margin_right = 20
+patch_margin_bottom = 12
+
+[node name="MenuClose" type="TextureButton" parent="MenuRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_3bdr1")
+texture_pressed = ExtResource("6_nawqr")
+texture_hover = ExtResource("7_ioo3w")
+texture_disabled = ExtResource("8_3c0ky")
+stretch_mode = 0
+
+[node name="Equip_Panel" parent="MenuRect" instance=ExtResource("9_2wia0")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 512.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_lock_ = true
+
+[node name="Stat_Window" parent="MenuRect" instance=ExtResource("10_m1ijt")]
+layout_mode = 1
+offset_left = 448.0
+offset_top = 64.0
+offset_right = -128.0
+offset_bottom = -256.0
+
+[node name="Inventory_Panel" parent="MenuRect" instance=ExtResource("9_3xo2u")]
+layout_mode = 1
+offset_left = 448.0
+offset_top = 384.0
+offset_right = -128.0
+offset_bottom = -64.0
+
+[connection signal="pressed" from="MenuRect/MenuClose" to="." method="_on_menu_close_pressed"]

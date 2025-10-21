@@ -1,0 +1,230 @@
+[gd_scene load_steps=10 format=3 uid="uid://7vxln7mdom2i"]
+
+[ext_resource type="Script" path="res://_autoload_ui/combat_ui.gd" id="1_dn0i3"]
+[ext_resource type="Texture2D" uid="uid://bqp1lksqtiy46" path="res://imported/zAssets/Menu/combat_border.png" id="3_haf18"]
+[ext_resource type="Texture2D" uid="uid://du7tl4axaudth" path="res://imported/zAssets/Menu/title.png" id="4_kubxt"]
+[ext_resource type="Texture2D" uid="uid://tac04n6jfe84" path="res://player_map_move_anima_colis/Sprites/spritesheets/knight.png" id="6_bg1fv"]
+[ext_resource type="Texture2D" uid="uid://dx1fecdu4e20u" path="res://imported/zAssets/Guys/funguy.png" id="6_jfvao"]
+[ext_resource type="Texture2D" uid="uid://cl45mghcdduiu" path="res://UI_inv_item_btn_drag/Assets/x_normal.png" id="7_do3tg"]
+[ext_resource type="Texture2D" uid="uid://bg6qvcnhpvs3g" path="res://UI_inv_item_btn_drag/Assets/x_pressed.png" id="8_aedg5"]
+[ext_resource type="Texture2D" uid="uid://bbunoh40chyjm" path="res://UI_inv_item_btn_drag/Assets/x_hover.png" id="9_lu6m7"]
+[ext_resource type="Texture2D" uid="uid://bp32fmbn02hhj" path="res://UI_inv_item_btn_drag/Assets/x_disabled.png" id="10_jisha"]
+
+[node name="Combat_UI" type="CanvasLayer"]
+process_mode = 2
+visible = false
+script = ExtResource("1_dn0i3")
+
+[node name="Frame" type="NinePatchRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_haf18")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="action_container" type="GridContainer" parent="Frame"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = 154.0
+offset_right = -14.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="atk" type="NinePatchRect" parent="Frame/action_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_kubxt")
+patch_margin_left = 8
+patch_margin_top = 6
+patch_margin_right = 8
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Frame/action_container/atk"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -11.5
+offset_right = 15.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="atk" type="Button" parent="Frame/action_container/atk"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+flat = true
+
+[node name="dodge" type="NinePatchRect" parent="Frame/action_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_kubxt")
+patch_margin_left = 8
+patch_margin_top = 6
+patch_margin_right = 8
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Frame/action_container/dodge"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -11.5
+offset_right = 15.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "dodge"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dodge" type="Button" parent="Frame/action_container/dodge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+flat = true
+
+[node name="endure" type="NinePatchRect" parent="Frame/action_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_kubxt")
+patch_margin_left = 8
+patch_margin_top = 6
+patch_margin_right = 8
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Frame/action_container/endure"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -11.5
+offset_right = 15.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "endure"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endure" type="Button" parent="Frame/action_container/endure"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+flat = true
+
+[node name="parry" type="NinePatchRect" parent="Frame/action_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_kubxt")
+patch_margin_left = 8
+patch_margin_top = 6
+patch_margin_right = 8
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Frame/action_container/parry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -11.5
+offset_right = 15.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "parry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="parry" type="Button" parent="Frame/action_container/parry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Frame"]
+position = Vector2(298, 307)
+scale = Vector2(4.4, 3.76)
+texture = ExtResource("6_bg1fv")
+region_enabled = true
+region_rect = Rect2(4, 166, 24, 24)
+
+[node name="enemy_sprite" type="Sprite2D" parent="Frame"]
+texture_filter = 1
+position = Vector2(860, 209)
+scale = Vector2(4, 4)
+texture = ExtResource("6_jfvao")
+region_rect = Rect2(4, 166, 24, 24)
+
+[node name="Close_btn" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1066.0
+offset_right = 1149.0
+offset_bottom = 80.0
+action_mode = 0
+texture_normal = ExtResource("7_do3tg")
+texture_pressed = ExtResource("8_aedg5")
+texture_hover = ExtResource("9_lu6m7")
+texture_disabled = ExtResource("10_jisha")
+stretch_mode = 0
+
+[connection signal="pressed" from="Frame/action_container/atk/atk" to="." method="_on_atk_pressed"]
+[connection signal="pressed" from="Frame/action_container/dodge/dodge" to="." method="_on_dodge_pressed"]
+[connection signal="pressed" from="Frame/action_container/endure/endure" to="." method="_on_endure_pressed"]
+[connection signal="pressed" from="Frame/action_container/parry/parry" to="." method="_on_parry_pressed"]
+[connection signal="pressed" from="Close_btn" to="." method="_on_close_pressed"]

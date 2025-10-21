@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cu5m52wwidiq0"]
+
+[ext_resource type="Script" path="res://UI_inv_item_btn_drag/Scripts/ItemData.gd" id="1_k3io7"]
+[ext_resource type="Texture2D" uid="uid://bx8jtiv54em1o" path="res://UI_inv_item_btn_drag/Assets/spear_legendary.png" id="2_d15n5"]
+
+[resource]
+script = ExtResource("1_k3io7")
+type = 2
+name = "Spear"
+texture = ExtResource("2_d15n5")

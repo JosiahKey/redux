@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://di54anvkf0anp"]
+
+[ext_resource type="Script" path="res://random_tree_thing/Scenes/brute_force/mazemap.gd" id="1_d35cy"]
+[ext_resource type="Texture2D" uid="uid://wffgbcniae5l" path="res://random_tree_thing/Tilesets/img_src/skyrock2.0.png" id="2_eaql8"]
+[ext_resource type="PackedScene" uid="uid://bkj8g6loljknq" path="res://random_tree_thing/Scenes/player/player.tscn" id="3_afm53"]
+[ext_resource type="TileSet" uid="uid://cn8c3261w5dmc" path="res://random_tree_thing/Tilesets/hills.tres" id="3_w4ygn"]
+
+[node name="Mazemap" type="Node2D"]
+script = ExtResource("1_d35cy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -144.0
+offset_right = 880.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eaql8")
+
+[node name="map" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_w4ygn")
+
+[node name="Player" parent="." instance=ExtResource("3_afm53")]
+position = Vector2(16, 16)
+safe_margin = 0.001
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = -48.0
+offset_right = 133.0
+offset_bottom = -17.0
+text = "Generate Maze"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

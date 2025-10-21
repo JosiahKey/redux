@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ut0c33wejg74"]
+
+[ext_resource type="Script" path="res://UI_inv_item_btn_drag/Scripts/ItemData.gd" id="1_7j5c7"]
+[ext_resource type="Texture2D" uid="uid://dpoomcpidswwd" path="res://UI_inv_item_btn_drag/Assets/sword_uncommon.png" id="2_dil8v"]
+
+[resource]
+script = ExtResource("1_7j5c7")
+type = 2
+name = "Sword"
+texture = ExtResource("2_dil8v")

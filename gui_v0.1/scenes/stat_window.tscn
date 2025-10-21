@@ -1,0 +1,192 @@
+[gd_scene load_steps=5 format=3 uid="uid://7fcicef1nrb"]
+
+[ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="1_pm482"]
+[ext_resource type="PackedScene" uid="uid://brvk3r8twnsf3" path="res://gui_v0.1/scenes/stat_field.tscn" id="2_tv0w1"]
+[ext_resource type="Script" path="res://gui_v0.1/Scripts/stat_window.gd" id="2_ywyu0"]
+[ext_resource type="Texture2D" uid="uid://bkyixun3ljlmh" path="res://gui_v0.1/Assets/inner_panel_grey.png" id="3_c65l4"]
+
+[node name="Stat_Window" type="NinePatchRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = -504.0
+offset_bottom = -336.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pm482")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+script = ExtResource("2_ywyu0")
+
+[node name="Stat_Grid" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 40.0
+offset_right = 344.0
+offset_bottom = 216.0
+theme_override_constants/h_separation = 104
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="Health_Points_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = ExtResource("3_c65l4")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Health_Points_Stat_Label"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1001
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Health_Points_Stat_Label"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_left = -72.0
+offset_bottom = 32.0
+text = "Health
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Health_Points_Stat_Label/stat_label"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Strength_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = ExtResource("3_c65l4")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Strength_Stat_Label"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1001
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Strength_Stat_Label"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_left = -72.0
+offset_bottom = 32.0
+text = "Strength
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Strength_Stat_Label/stat_label"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Speed_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = ExtResource("3_c65l4")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Speed_Stat_Label"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1001
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Speed_Stat_Label"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_left = -72.0
+offset_bottom = 32.0
+text = "Speed
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Speed_Stat_Label/stat_label"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Stat_Field4" parent="Stat_Grid" instance=ExtResource("2_tv0w1")]
+layout_mode = 2
+
+[node name="Stat_Field5" parent="Stat_Grid" instance=ExtResource("2_tv0w1")]
+layout_mode = 2
+
+[node name="Stat_Field6" parent="Stat_Grid" instance=ExtResource("2_tv0w1")]
+layout_mode = 2
+
+[node name="Stat_Field7" parent="Stat_Grid" instance=ExtResource("2_tv0w1")]
+layout_mode = 2
+
+[node name="Stat_Field8" parent="Stat_Grid" instance=ExtResource("2_tv0w1")]
+layout_mode = 2
