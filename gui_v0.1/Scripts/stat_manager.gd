@@ -7,7 +7,7 @@ var speed: Label
 var damage: Label
 
 var stats = {
-	"hp_max": 400,
+	"hp_max": 600,
 	"hp": 500,
 	"strength": 5,
 	"speed": 10,
