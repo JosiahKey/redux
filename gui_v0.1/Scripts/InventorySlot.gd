@@ -17,7 +17,6 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 				return true
 			return get_child(0).data.type == data.data.type
 		else:
-			#assumption that if types match then the item was "equipped"
 			return data.data.type == type #return true if type of item and slot are the same
 	return false
 

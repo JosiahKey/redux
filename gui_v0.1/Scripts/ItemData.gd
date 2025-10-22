@@ -3,6 +3,7 @@ extends Resource
 
 enum Type {HEAD, ARM, CHEST, WAIST, LEGS, GENERAL}
 
+@export var is_equipped: bool
 @export var type: Type
 @export var name:String
 @export var texture: Texture2D

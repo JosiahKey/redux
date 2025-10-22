@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://1nyyqt37d4i0"]
+[gd_scene load_steps=5 format=3 uid="uid://1nyyqt37d4i0"]
 
 [ext_resource type="Texture2D" uid="uid://cgcb4la00i86i" path="res://gui_v0.1/Assets/equipment_panel_wow.png" id="1_hxci5"]
+[ext_resource type="Script" path="res://gui_v0.1/Scripts/equip_panel.gd" id="2_7cphp"]
 [ext_resource type="Script" path="res://gui_v0.1/Scripts/InventorySlot.gd" id="2_767ir"]
 [ext_resource type="Texture2D" uid="uid://ckemv8mgsbvjc" path="res://gui_v0.1/Assets/title.png" id="2_a7mxh"]
 
@@ -17,6 +18,7 @@ patch_margin_left = 25
 patch_margin_top = 36
 patch_margin_right = 25
 patch_margin_bottom = 36
+script = ExtResource("2_7cphp")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
