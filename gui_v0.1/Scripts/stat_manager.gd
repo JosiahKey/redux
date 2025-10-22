@@ -1,26 +1,26 @@
 extends Node
 
-var _health: Label
-var _strength: Label
-var _speed: Label
-var _damage: Label
+var stat_ui_ref: NinePatchRect
 
 var stats = {
 	"hp_max": 600,
-	"hp": 500,
 	"strength": 5,
 	"speed": 10,
+	"hp": 500,
 }
 
-#Public 'Signal' functions. I think ideally this is just a node in the tree that uses signals instead
-func set_stat_labels(h: Label, st: Label, sp: Label, d: Label):
-	#this function is called by the stat panel when it is initialized
-	_health = h
-	_strength = st
-	_speed = sp
-	_damage = d
-	#initialize stats to labels
-	stats_changed(0,0,0,0)
+func _ready() -> void:
+	#this is creating a race condition because the auto load is loaded before the stat panel exists
+	#to fix this the stat panel will have to initiate the update to stats on ready()
+	_update_stat_panel_labels(stat_ui_ref.get_stat_labels())
+	
+func _process(delta: float) -> void:
+	pass
+	
+
+func _update_stat_panel_labels(labels: Array[Label]):
+	for l in labels.size():
+		labels[l].text = str(stats[l])
 
 func get_stat(stat: String):
 	for x in stats:
@@ -28,11 +28,12 @@ func get_stat(stat: String):
 			return stats[x]
 
 func stats_changed(hp_max: int, hp: int, stren: int, spd: int):
-	_update_stats(hp_max,hp,stren,spd)
-	_update_stat_panel_labels()
+	#_set_stats(hp_max,hp,stren,spd)
+	#_update_stat_panel_labels()
+	pass
 
 #private functions
-func _update_stats(hp_max: int, hp: int, stren: int, spd: int):
+func _set_stats(hp_max: int, hp: int, stren: int, spd: int):
 	stats["hp_max"] += hp_max
 	if stats["hp"] + hp > stats["hp_max"]:
 		stats["hp"] = stats["hp_max"]
@@ -40,11 +41,6 @@ func _update_stats(hp_max: int, hp: int, stren: int, spd: int):
 		stats["hp"] += hp
 	stats["strength"] += stren
 	stats["speed"] += spd
-
-func _update_stat_panel_labels():
-	_health.text = str(stats["hp_max"])
-	_strength.text = str(stats["strength"])
-	_speed.text = str(stats["speed"])
 
 func _calculate_damage() -> Vector2:
 	
