@@ -11,7 +11,6 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	if data is InventoryItem:
 		if type == ItemData.Type.GENERAL: #if the slot type is 'general', then drop anything if its empty
 			if get_child_count() == 0:
-				print(str(type))
 				return true
 			else: if type == data.get_parent().type:
 				return true

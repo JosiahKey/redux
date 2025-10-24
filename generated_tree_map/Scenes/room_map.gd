@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var master_ref = $master_layout
 @onready var world_ref = $World
-@onready var tier_scene = preload("res://random_tree_thing/Scenes/tiers.tscn")
+@onready var tier_scene = preload("res://generated_tree_map/Scenes/tiers.tscn")
 var test_layout: Array[Vector2] = [
 	Vector2(0,0),
 	Vector2(1,0),Vector2(1,1),Vector2(1,2),

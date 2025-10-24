@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f1ta4816tonl"
-path="res://.godot/imported/room_closed.png-250b8eeb25c2394a5a9b59fb6cddb49c.ctex"
+uid="uid://cmekaun18hinl"
+path="res://.godot/imported/skymap.png-187fbb1ac156cd50d86ecb709ae7cb83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random_tree_thing/Tilesets/img_src/room_closed.png"
-dest_files=["res://.godot/imported/room_closed.png-250b8eeb25c2394a5a9b59fb6cddb49c.ctex"]
+source_file="res://generated_tree_map/Tilesets/img_src/skymap.png"
+dest_files=["res://.godot/imported/skymap.png-187fbb1ac156cd50d86ecb709ae7cb83.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

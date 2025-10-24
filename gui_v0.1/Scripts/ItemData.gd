@@ -1,7 +1,7 @@
 class_name ItemData
 extends Resource
 
-enum Type {HEAD, ARM, CHEST, WAIST, LEGS, GENERAL}
+enum Type {HEAD, CHEST, ARM, WAIST, LEGS, GENERAL}
 
 @export var is_equipped: bool
 @export var type: Type

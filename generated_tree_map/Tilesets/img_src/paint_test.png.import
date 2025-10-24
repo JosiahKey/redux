@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://js7tv8y0diyn"
-path="res://.godot/imported/room_open.png-c7d27a3b2253df338c896eb72d91eb56.ctex"
+uid="uid://oikf753msjfr"
+path="res://.godot/imported/paint_test.png-5b16c141a9ad0a40778335518e8cc218.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random_tree_thing/Tilesets/img_src/room_open.png"
-dest_files=["res://.godot/imported/room_open.png-c7d27a3b2253df338c896eb72d91eb56.ctex"]
+source_file="res://generated_tree_map/Tilesets/img_src/paint_test.png"
+dest_files=["res://.godot/imported/paint_test.png-5b16c141a9ad0a40778335518e8cc218.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

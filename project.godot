@@ -12,11 +12,7 @@ config_version=5
 
 config/name="Redux"
 run/main_scene="res://player_map_move_anima_colis/Levels/debug_level.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
-
-[autoload]
-
-StatManager="*res://gui_v0.1/Scripts/stat_manager.gd"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [display]
 

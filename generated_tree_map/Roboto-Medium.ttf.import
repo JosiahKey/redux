@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://xmn0on81dq6f"
-path="res://.godot/imported/Roboto-Medium.ttf-0ccf3b97841d8fb6e6e50de135a401b7.fontdata"
+path="res://.godot/imported/Roboto-Medium.ttf-bf117fdfd5a1c790aed09c863b5f6f62.fontdata"
 
 [deps]
 
-source_file="res://random_tree_thing/Roboto-Medium.ttf"
-dest_files=["res://.godot/imported/Roboto-Medium.ttf-0ccf3b97841d8fb6e6e50de135a401b7.fontdata"]
+source_file="res://generated_tree_map/Roboto-Medium.ttf"
+dest_files=["res://.godot/imported/Roboto-Medium.ttf-bf117fdfd5a1c790aed09c863b5f6f62.fontdata"]
 
 [params]
 
@@ -21,8 +21,10 @@ msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
+modulate_color_glyphs=false
 hinting=1
 subpixel_positioning=1
+keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

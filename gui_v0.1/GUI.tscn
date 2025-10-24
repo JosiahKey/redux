@@ -1,29 +1,37 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5oqm5bsmnub4"]
+[gd_scene load_steps=17 format=3 uid="uid://b5oqm5bsmnub4"]
 
-[ext_resource type="Script" path="res://gui_v0.1/Scripts/gui.gd" id="1_gacmr"]
+[ext_resource type="Script" uid="uid://bpffm7gyjmf8a" path="res://gui_v0.1/Scripts/gui.gd" id="1_gacmr"]
+[ext_resource type="Script" uid="uid://njs0puwc56tu" path="res://gui_v0.1/Scripts/stat_manager.gd" id="2_etcvt"]
 [ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="4_lhedw"]
 [ext_resource type="Texture2D" uid="uid://oq3aek8koij2" path="res://gui_v0.1/Assets/x_normal.png" id="5_3bdr1"]
 [ext_resource type="Texture2D" uid="uid://bq0q3847gwgd4" path="res://gui_v0.1/Assets/x_pressed.png" id="6_nawqr"]
 [ext_resource type="Texture2D" uid="uid://c2dacj33vfcyo" path="res://gui_v0.1/Assets/x_hover.png" id="7_ioo3w"]
 [ext_resource type="Texture2D" uid="uid://naqv6e3xpnt1" path="res://gui_v0.1/Assets/x_disabled.png" id="8_3c0ky"]
-[ext_resource type="PackedScene" uid="uid://1nyyqt37d4i0" path="res://gui_v0.1/scenes/equip_panel.tscn" id="9_2wia0"]
+[ext_resource type="Texture2D" uid="uid://cgcb4la00i86i" path="res://gui_v0.1/Assets/equipment_panel_wow.png" id="8_vimaw"]
 [ext_resource type="PackedScene" uid="uid://d4fs67c6gbivw" path="res://gui_v0.1/scenes/Inventory_Panel.tscn" id="9_3xo2u"]
+[ext_resource type="Script" uid="uid://cshxdi1qw1ouq" path="res://gui_v0.1/Scripts/equip_panel.gd" id="9_nf6yx"]
 [ext_resource type="Resource" uid="uid://btu1jbnpa1d" path="res://gui_v0.1/Resources/spear.tres" id="10_jfh37"]
+[ext_resource type="Texture2D" uid="uid://ckemv8mgsbvjc" path="res://gui_v0.1/Assets/title.png" id="10_lfyeo"]
 [ext_resource type="PackedScene" uid="uid://7fcicef1nrb" path="res://gui_v0.1/scenes/stat_panel.tscn" id="10_m1ijt"]
+[ext_resource type="Script" uid="uid://vndj5h8b170a" path="res://gui_v0.1/Scripts/InventorySlot.gd" id="11_motxs"]
 [ext_resource type="Resource" uid="uid://cpcvf6xjhd3w" path="res://gui_v0.1/Resources/sword.tres" id="11_rsy16"]
 [ext_resource type="Resource" uid="uid://ctrxo02wphghg" path="res://gui_v0.1/Resources/axe.tres" id="12_ry7mw"]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_gacmr")
 
-[node name="MenuRect" type="NinePatchRect" parent="."]
+[node name="Stat_Manager" type="Node2D" parent="."]
+script = ExtResource("2_etcvt")
+
+[node name="MenuRect" type="NinePatchRect" parent="Stat_Manager"]
+custom_minimum_size = Vector2(960, 576)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 64.0
 offset_top = 64.0
-offset_right = -56.0
-offset_bottom = -80.0
+offset_right = 1024.0
+offset_bottom = 640.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -35,7 +43,7 @@ patch_margin_top = 12
 patch_margin_right = 20
 patch_margin_bottom = 12
 
-[node name="MenuClose" type="TextureButton" parent="MenuRect"]
+[node name="MenuClose" type="TextureButton" parent="Stat_Manager/MenuRect"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
@@ -50,34 +58,170 @@ texture_hover = ExtResource("7_ioo3w")
 texture_disabled = ExtResource("8_3c0ky")
 stretch_mode = 0
 
-[node name="Equip_Panel" parent="MenuRect" instance=ExtResource("9_2wia0")]
+[node name="Equip_Panel" type="NinePatchRect" parent="Stat_Manager/MenuRect"]
+custom_minimum_size = Vector2(320, 448)
 layout_mode = 0
-offset_left = 64.0
+offset_left = 88.0
 offset_top = 64.0
-offset_right = 384.0
+offset_right = 408.0
 offset_bottom = 512.0
-grow_horizontal = 1
-grow_vertical = 1
+texture = ExtResource("8_vimaw")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 25
+patch_margin_top = 36
+patch_margin_right = 25
+patch_margin_bottom = 36
+script = ExtResource("9_nf6yx")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Stat_Manager/MenuRect/Equip_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = -12.0
+offset_right = 56.0
+offset_bottom = 8.0
+grow_horizontal = 2
+texture = ExtResource("10_lfyeo")
+region_rect = Rect2(0, 2, 32, 14)
+patch_margin_left = 8
+patch_margin_top = 4
+patch_margin_right = 8
+patch_margin_bottom = 2
 metadata/_edit_lock_ = true
 
-[node name="Stat_Panel" parent="MenuRect" instance=ExtResource("10_m1ijt")]
+[node name="Label" type="Label" parent="Stat_Manager/MenuRect/Equip_Panel/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.300985, 0.33972, 0.161804, 1)
+text = "Equipment"
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="Stat_Manager/MenuRect/Equip_Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -98.0
+offset_right = 38.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 24
+columns = 2
+metadata/_edit_lock_ = true
+
+[node name="Head1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+
+[node name="Head2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+
+[node name="Chest1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 2
+
+[node name="Chest2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 2
+
+[node name="Arm1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 1
+
+[node name="Arm2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 1
+
+[node name="Waist1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 3
+
+[node name="Waist2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 3
+
+[node name="Leg1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 4
+
+[node name="Leg2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 4
+
+[node name="Stat_Panel" parent="Stat_Manager/MenuRect" instance=ExtResource("10_m1ijt")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 448.0
+offset_left = 488.0
 offset_top = 64.0
-offset_right = 832.0
+offset_right = 872.0
 offset_bottom = 320.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Inventory_Panel" parent="MenuRect" instance=ExtResource("9_3xo2u")]
+[node name="Inventory_Panel" parent="Stat_Manager/MenuRect" instance=ExtResource("9_3xo2u")]
 layout_mode = 1
-offset_left = 448.0
+offset_left = 488.0
 offset_top = 384.0
-offset_right = -128.0
-offset_bottom = -64.0
+offset_right = 872.0
+offset_bottom = 512.0
 itemsLoad = Array[Resource]([ExtResource("10_jfh37"), ExtResource("11_rsy16"), ExtResource("11_rsy16"), ExtResource("12_ry7mw")])
 
-[connection signal="pressed" from="MenuRect/MenuClose" to="." method="_on_menu_close_pressed"]
+[connection signal="pressed" from="Stat_Manager/MenuRect/MenuClose" to="." method="_on_menu_close_pressed"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]

@@ -1,19 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4fs67c6gbivw"]
 
 [ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="1_o04eg"]
-[ext_resource type="Script" path="res://gui_v0.1/Scripts/InventoryPanel.gd" id="2_lh24k"]
+[ext_resource type="Script" uid="uid://i85djuorhtum" path="res://gui_v0.1/Scripts/InventoryPanel.gd" id="2_lh24k"]
 [ext_resource type="Resource" uid="uid://btu1jbnpa1d" path="res://gui_v0.1/Resources/spear.tres" id="3_2qxft"]
 [ext_resource type="Resource" uid="uid://cpcvf6xjhd3w" path="res://gui_v0.1/Resources/sword.tres" id="4_6l7cj"]
 
 [node name="Inventory_Panel" type="NinePatchRect"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -8.0
-offset_right = -696.0
-offset_bottom = -592.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(384, 128)
+offset_right = 384.0
+offset_bottom = 128.0
 texture = ExtResource("1_o04eg")
 patch_margin_left = 12
 patch_margin_top = 12

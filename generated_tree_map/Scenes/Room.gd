@@ -5,8 +5,8 @@ var tier = 0
 var lateral = 0
 var coord: Vector2 = Vector2(0,0)
 var global_coord: Vector2
-var texture_norm = load("res://random_tree_thing/Tilesets/img_src/room_open.png")
-var texture_dis = load("res://random_tree_thing/Tilesets/img_src/room_closed.png")
+var texture_norm = load("res://generated_tree_map/Tilesets/img_src/room_open.png")
+var texture_dis = load("res://generated_tree_map/Tilesets/img_src/room_closed.png")
 var world_data: PackedScene
 var connections: Array[Vector2] = []
 var is_accessable: bool = false
@@ -14,7 +14,7 @@ var CELL_SIZE = 16
 
 func random_map() -> PackedScene:
 	#randi_range()
-	return load("res://random_tree_thing/Scenes/debug_level.tscn")
+	return load("res://generated_tree_map/Scenes/debug_level.tscn")
 
 func _init(rm: Vector2) -> void:
 	self.disabled = true
