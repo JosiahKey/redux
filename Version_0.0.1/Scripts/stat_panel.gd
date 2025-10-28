@@ -1,3 +1,4 @@
+class_name UIStats
 extends NinePatchRect
 
 var _stat_labels :Array[Label]

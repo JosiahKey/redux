@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://b71csy5vlolrb"]
 
-[ext_resource type="Script" path="res://player_map_move_anima_colis/Scenes/player.gd" id="1_s34mn"]
+[ext_resource type="Script" uid="uid://b6w5hr72im1xv" path="res://player_map_move_anima_colis/Scenes/player.gd" id="1_s34mn"]
 [ext_resource type="Texture2D" uid="uid://tac04n6jfe84" path="res://player_map_move_anima_colis/Sprites/spritesheets/knight.png" id="2_xgpcu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wneaf"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bp7q785x53xwb"]
+
+[ext_resource type="Script" uid="uid://bb1m36kirfkod" path="res://gui_v0.1/Scripts/ItemData.gd" id="1_ysts7"]
+[ext_resource type="Texture2D" uid="uid://t0owt302tino" path="res://Version_0.0.1/Assets/sword_uncommon.png" id="2_ysts7"]
+
+[resource]
+script = ExtResource("1_ysts7")
+type = 3
+name = "sword"
+texture = ExtResource("2_ysts7")
+damage_min = 3
+damage_max = 3
+min_Strength = 4

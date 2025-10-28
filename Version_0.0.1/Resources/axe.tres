@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://u1u2o1ebdxkv"]
+
+[ext_resource type="Script" uid="uid://bb1m36kirfkod" path="res://gui_v0.1/Scripts/ItemData.gd" id="1_86b0w"]
+[ext_resource type="Texture2D" uid="uid://dy5tu77mjl5rx" path="res://Version_0.0.1/Assets/axe_epic.png" id="2_86b0w"]
+
+[resource]
+script = ExtResource("1_86b0w")
+type = 4
+name = "axe"
+texture = ExtResource("2_86b0w")
+damage_min = 1
+damage_max = 5
+min_Strength = 3
+weight = 4

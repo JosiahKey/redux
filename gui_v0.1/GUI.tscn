@@ -17,21 +17,21 @@
 [ext_resource type="Resource" uid="uid://cpcvf6xjhd3w" path="res://gui_v0.1/Resources/sword.tres" id="11_rsy16"]
 [ext_resource type="Resource" uid="uid://ctrxo02wphghg" path="res://gui_v0.1/Resources/axe.tres" id="12_ry7mw"]
 
-[node name="GUI" type="CanvasLayer"]
-script = ExtResource("1_gacmr")
-
-[node name="Stat_Manager" type="Node2D" parent="."]
+[node name="Stat_Manager" type="Node2D"]
 script = ExtResource("2_etcvt")
 
-[node name="MenuRect" type="NinePatchRect" parent="Stat_Manager"]
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource("1_gacmr")
+
+[node name="MenuRect" type="NinePatchRect" parent="GUI"]
 custom_minimum_size = Vector2(960, 576)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 64.0
 offset_top = 64.0
-offset_right = 1024.0
-offset_bottom = 640.0
+offset_right = -56.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -43,7 +43,7 @@ patch_margin_top = 12
 patch_margin_right = 20
 patch_margin_bottom = 12
 
-[node name="MenuClose" type="TextureButton" parent="Stat_Manager/MenuRect"]
+[node name="MenuClose" type="TextureButton" parent="GUI/MenuRect"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
@@ -58,7 +58,7 @@ texture_hover = ExtResource("7_ioo3w")
 texture_disabled = ExtResource("8_3c0ky")
 stretch_mode = 0
 
-[node name="Equip_Panel" type="NinePatchRect" parent="Stat_Manager/MenuRect"]
+[node name="Equip_Panel" type="NinePatchRect" parent="GUI/MenuRect"]
 custom_minimum_size = Vector2(320, 448)
 layout_mode = 0
 offset_left = 88.0
@@ -73,7 +73,7 @@ patch_margin_right = 25
 patch_margin_bottom = 36
 script = ExtResource("9_nf6yx")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Stat_Manager/MenuRect/Equip_Panel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="GUI/MenuRect/Equip_Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -91,7 +91,7 @@ patch_margin_right = 8
 patch_margin_bottom = 2
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="Stat_Manager/MenuRect/Equip_Panel/NinePatchRect"]
+[node name="Label" type="Label" parent="GUI/MenuRect/Equip_Panel/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,7 +108,7 @@ theme_override_colors/font_color = Color(0.300985, 0.33972, 0.161804, 1)
 text = "Equipment"
 metadata/_edit_lock_ = true
 
-[node name="GridContainer" type="GridContainer" parent="Stat_Manager/MenuRect/Equip_Panel"]
+[node name="GridContainer" type="GridContainer" parent="GUI/MenuRect/Equip_Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -126,65 +126,65 @@ theme_override_constants/v_separation = 24
 columns = 2
 metadata/_edit_lock_ = true
 
-[node name="Head1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Head1" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 
-[node name="Head2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Head2" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 
-[node name="Chest1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("11_motxs")
-type = 2
-
-[node name="Chest2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Chest1" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 type = 2
 
-[node name="Arm1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Chest2" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+script = ExtResource("11_motxs")
+type = 2
+
+[node name="Arm1" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 type = 1
 
-[node name="Arm2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Arm2" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 type = 1
 
-[node name="Waist1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Waist1" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 type = 3
 
-[node name="Waist2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Waist2" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 type = 3
 
-[node name="Leg1" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Leg1" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 type = 4
 
-[node name="Leg2" type="PanelContainer" parent="Stat_Manager/MenuRect/Equip_Panel/GridContainer"]
+[node name="Leg2" type="PanelContainer" parent="GUI/MenuRect/Equip_Panel/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("11_motxs")
 type = 4
 
-[node name="Stat_Panel" parent="Stat_Manager/MenuRect" instance=ExtResource("10_m1ijt")]
+[node name="Stat_Panel" parent="GUI/MenuRect" instance=ExtResource("10_m1ijt")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -196,7 +196,7 @@ offset_bottom = 320.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Inventory_Panel" parent="Stat_Manager/MenuRect" instance=ExtResource("9_3xo2u")]
+[node name="Inventory_Panel" parent="GUI/MenuRect" instance=ExtResource("9_3xo2u")]
 layout_mode = 1
 offset_left = 488.0
 offset_top = 384.0
@@ -204,24 +204,24 @@ offset_right = 872.0
 offset_bottom = 512.0
 itemsLoad = Array[Resource]([ExtResource("10_jfh37"), ExtResource("11_rsy16"), ExtResource("11_rsy16"), ExtResource("12_ry7mw")])
 
-[connection signal="pressed" from="Stat_Manager/MenuRect/MenuClose" to="." method="_on_menu_close_pressed"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Head2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Chest2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Arm2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Waist2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg1" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg1" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg2" to="Stat_Manager" method="_on_equip_slot_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Stat_Manager/MenuRect/Equip_Panel/GridContainer/Leg2" to="Stat_Manager" method="_on_equip_slot_child_exiting_tree"]
+[connection signal="pressed" from="GUI/MenuRect/MenuClose" to="GUI" method="_on_menu_close_pressed"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Head1" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Head1" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Head2" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Head2" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Chest1" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Chest1" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Chest2" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Chest2" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Arm1" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Arm1" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Arm2" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Arm2" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Waist1" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Waist1" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Waist2" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Waist2" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Leg1" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Leg1" to="." method="_on_equip_slot_child_exiting_tree"]
+[connection signal="child_entered_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Leg2" to="." method="_on_equip_slot_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GUI/MenuRect/Equip_Panel/GridContainer/Leg2" to="." method="_on_equip_slot_child_exiting_tree"]
