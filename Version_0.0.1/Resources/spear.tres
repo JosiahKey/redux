@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dn62ofkc0lc2x"]
 
-[ext_resource type="Script" uid="uid://bb1m36kirfkod" path="res://gui_v0.1/Scripts/ItemData.gd" id="1_v2bjs"]
+[ext_resource type="Script" uid="uid://bvdeut8dsuaib" path="res://Version_0.0.1/Scripts/item_data.gd" id="1_v2bjs"]
 [ext_resource type="Texture2D" uid="uid://b4xyobllhr5b6" path="res://Version_0.0.1/Assets/spear_legendary.png" id="2_v2bjs"]
 
 [resource]

@@ -1,4 +1,4 @@
-class_name ItemData2
+class_name ItemData
 extends Resource
 
 enum Type {HEAD, CHEST, ARM, WAIST, LEGS, GENERAL}

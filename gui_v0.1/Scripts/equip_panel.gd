@@ -1,4 +1,3 @@
-class_name Equipment
 extends NinePatchRect
 
 @onready var grid_ref := $GridContainer

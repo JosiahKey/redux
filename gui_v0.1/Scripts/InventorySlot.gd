@@ -1,15 +1,15 @@
-class_name InventorySlot
+class_name InventorySlot2
 extends PanelContainer
 
-@export var type: ItemData.Type
+@export var type: ItemData2.Type
 
-func init(t: ItemData.Type, cms: Vector2) -> void:
+func init(t: ItemData2.Type, cms: Vector2) -> void:
 	type = t
 	custom_minimum_size = cms
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if data is InventoryItem:
-		if type == ItemData.Type.GENERAL: #if the slot type is 'general', then drop anything if its empty
+	if data is InventoryItem2:
+		if type == ItemData2.Type.GENERAL: #if the slot type is 'general', then drop anything if its empty
 			if get_child_count() == 0:
 				return true
 			else: if type == data.get_parent().type:
