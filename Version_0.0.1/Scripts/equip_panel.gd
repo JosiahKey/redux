@@ -3,9 +3,6 @@ extends NinePatchRect
 
 @onready var grid_ref := $GridContainer
 
-#func _process(_delta: float) -> void:
-	#get_equipped_items()
-
 func get_equipped_items() -> Array[Variant]:
 	var equipped_item_list: Array[Variant]
 	for g in grid_ref.get_children():
