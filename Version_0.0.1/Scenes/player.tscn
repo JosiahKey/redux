@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvr23jbc5ixfx"]
+[gd_scene load_steps=5 format=3 uid="uid://dvr23jbc5ixfx"]
 
 [ext_resource type="Script" uid="uid://cup57p2qyd7vj" path="res://Version_0.0.1/Scripts/player.gd" id="1_iaqqb"]
 [ext_resource type="SpriteFrames" uid="uid://cpts52p4notdi" path="res://player_map_move_anima_colis/Sprites/AnimatedKnight.tres" id="2_8q8is"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c841m"]
 radius = 7.0
 height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4e8i"]
+size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_iaqqb")
@@ -40,6 +43,12 @@ grow_vertical = 2
 color = Color(1, 1, 0.227451, 0.258824)
 metadata/_edit_lock_ = true
 
+[node name="Area2D" type="Area2D" parent="R_highlight" groups=["PlayerCursor"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="R_highlight/Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_x4e8i")
+
 [node name="L_highlight" type="ColorRect" parent="."]
 anchors_preset = 6
 anchor_left = 1.0
@@ -54,6 +63,12 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(1, 1, 0.227451, 0.258824)
 metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="L_highlight" groups=["PlayerCursor"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L_highlight/Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_x4e8i")
 
 [node name="U_highlight" type="ColorRect" parent="."]
 anchors_preset = 7
@@ -70,6 +85,12 @@ grow_vertical = 0
 color = Color(1, 1, 0.227451, 0.258824)
 metadata/_edit_lock_ = true
 
+[node name="Area2D" type="Area2D" parent="U_highlight" groups=["PlayerCursor"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="U_highlight/Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_x4e8i")
+
 [node name="D_highlight" type="ColorRect" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -81,3 +102,9 @@ offset_bottom = 24.0
 grow_horizontal = 2
 color = Color(1, 1, 0.227451, 0.258824)
 metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="D_highlight" groups=["PlayerCursor"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="D_highlight/Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_x4e8i")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dht7pjms57de4"]
+[gd_scene load_steps=10 format=4 uid="uid://dht7pjms57de4"]
 
 [ext_resource type="Texture2D" uid="uid://cjf6assjhuimv" path="res://imported/zAssets/Tiles/world_tileset.png" id="1_nuqbc"]
 [ext_resource type="PackedScene" uid="uid://dooph5blf7mxj" path="res://Version_0.0.1/Scenes/next_level.tscn" id="2_8vyl3"]
+[ext_resource type="PackedScene" uid="uid://cspy7ygi5jmvv" path="res://Version_0.0.1/Scenes/interactable.tscn" id="3_404aj"]
 [ext_resource type="PackedScene" uid="uid://dvr23jbc5ixfx" path="res://Version_0.0.1/Scenes/player.tscn" id="3_nuqbc"]
+[ext_resource type="Script" uid="uid://dmcpv5ls7uo8c" path="res://Version_0.0.1/Scripts/interactable.gd" id="4_s1wxv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fw2nl"]
 texture = ExtResource("1_nuqbc")
@@ -305,6 +307,10 @@ tile_set = SubResource("TileSet_qv0ul")
 
 [node name="next_level" parent="." instance=ExtResource("2_8vyl3")]
 position = Vector2(184, -24)
+
+[node name="interactable" parent="." instance=ExtResource("3_404aj")]
+position = Vector2(8, 24)
+script = ExtResource("4_s1wxv")
 
 [node name="Player" parent="." instance=ExtResource("3_nuqbc")]
 position = Vector2(-56, 72)

@@ -23,8 +23,6 @@ func make_drag_preview(at_position: Vector2):
 	t.custom_minimum_size = size*1.3
 	t.modulate.a = 0.5
 	t.position = Vector2(-at_position)
-	
 	var c := Control.new()
 	c.add_child(t)
-	
 	return c
