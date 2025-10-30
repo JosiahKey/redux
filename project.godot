@@ -28,11 +28,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Redux"
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
 [global_group]
 
 Player=""
