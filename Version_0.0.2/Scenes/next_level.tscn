@@ -1,15 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cspy7ygi5jmvv"]
+[gd_scene load_steps=3 format=3 uid="uid://bwv2mvgxikcru"]
 
-[ext_resource type="Script" uid="uid://c6ir7omja8g7i" path="res://Version_0.0.1/Scripts/next_level.gd" id="1_480vc"]
-[ext_resource type="Resource" uid="uid://dxtppyhm8sfng" path="res://Version_0.0.2/Resources/spear.tres" id="2_77e4x"]
+[ext_resource type="Script" uid="uid://bpkq0aipkttux" path="res://Version_0.0.2/Scripts/next_level.gd" id="1_73an6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpm22"]
 size = Vector2(16, 16)
 
-[node name="interactable" type="Area2D"]
+[node name="next_level" type="Area2D"]
 priority = 1
-script = ExtResource("1_480vc")
-item_res = ExtResource("2_77e4x")
+script = ExtResource("1_73an6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kpm22")

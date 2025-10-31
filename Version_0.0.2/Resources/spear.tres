@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dxtppyhm8sfng"]
+
+[ext_resource type="Script" uid="uid://d26hwi1y46aaj" path="res://Version_0.0.2/Scripts/item_data.gd" id="1_1p3u1"]
+[ext_resource type="Texture2D" uid="uid://c4bylstt4cm8q" path="res://Version_0.0.2/Assets/item_assets/spear_legendary.png" id="2_o1iio"]
+
+[resource]
+script = ExtResource("1_1p3u1")
+type = 3
+name = "spear"
+texture = ExtResource("2_o1iio")
+damage_min = 2
+damage_max = 4
+min_Strength = 2
+weight = 2

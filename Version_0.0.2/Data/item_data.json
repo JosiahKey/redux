@@ -1,102 +1,102 @@
 {
-  "1001": {
-	"name": "dagger",
+  "10001": {
+	"name": "axe_epic",
 	"damage_min": 0,
 	"damage_max": 5,
 	"min_Strength": 2,
 	"weight": 5,
-	"equipmentSlot": "1h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,
 	"epicMulti": 1.8,
 	"legendaryMulti": 2.4
   },
-  "1002": {
-	"name": "sword",
+  "10002": {
+	"name": "big_axe_epic",
 	"damage_min": 1,
 	"damage_max": 10,
 	"min_Strength": 4,
 	"weight": 10,
-	"equipmentSlot": "1h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,
 	"epicMulti": 1.8,
 	"legendaryMulti": 2.4
   },
-  "1003": {
-	"name": "axe",
+  "10003": {
+	"name": "big_hammer_rare",
 	"damage_min": 2,
 	"damage_max": 15,
 	"min_Strength": 6,
 	"weight": 15,
-	"equipmentSlot": "1h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,
 	"epicMulti": 1.8,
 	"legendaryMulti": 2.4
   },
-  "1004": {
-	"name": "hammer",
+  "10004": {
+	"name": "big_sword_common",
 	"damage_min": 3,
 	"damage_max": 20,
 	"min_Strength": 8,
 	"weight": 20,
-	"equipmentSlot": "1h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,
 	"epicMulti": 1.8,
 	"legendaryMulti": 2.4
   },
-  "1005": {
-	"name": "spear",
+  "10005": {
+	"name": "spear_legendary",
 	"damage_min": 4,
 	"damage_max": 25,
 	"min_Strength": 10,
 	"weight": 25,
-	"equipmentSlot": "2h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,
 	"epicMulti": 1.8,
 	"legendaryMulti": 2.4
   },
-  "1006": {
-	"name": "big_sword",
+  "10006": {
+	"name": "sword_epic",
 	"damage_min": 5,
 	"damage_max": 30,
 	"min_Strength": 12,
 	"weight": 30,
-	"equipmentSlot": "2h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,
 	"epicMulti": 1.8,
 	"legendaryMulti": 2.4
   },
-  "1007": {
-	"name": "big_axe",
+  "10007": {
+	"name": "sword_uncommon",
 	"damage_min": 6,
 	"damage_max": 35,
 	"min_Strength": 14,
 	"weight": 35,
-	"equipmentSlot": "2h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,
 	"epicMulti": 1.8,
 	"legendaryMulti": 2.4
   },
-  "1008": {
-	"name": "big_hammer",
+  "10008": {
+	"name": "dagger_common",
 	"damage_min": 7,
 	"damage_max": 40,
 	"min_Strength": 16,
 	"weight": 40,
-	"equipmentSlot": "2h",
+	"equipmentSlot": "ARM",
 	"commonMulti": 1,
 	"uncommonMulti": 1.15,
 	"rareMulti": 1.4,

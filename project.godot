@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="Redux"
-run/main_scene="uid://bqkw5054yibx7"
+run/main_scene="uid://cvtda0r3crgrf"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
-SignalBus="*res://Version_0.0.1/Globals/signal_bus.gd"
+GameData="*res://Version_0.0.2/Globals/game_data.gd"
+PlayerData="*res://Version_0.0.2/Globals/player_data.gd"
+SignalBus="*res://Version_0.0.2/Globals/signal_bus.gd"
 
 [display]
 
