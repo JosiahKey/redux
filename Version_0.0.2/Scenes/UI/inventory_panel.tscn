@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk1ohjole2bpy"]
 
 [ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="1_fly18"]
-[ext_resource type="Script" uid="uid://ca3ck21px7pcd" path="res://Version_0.0.2/Scripts/inverntory_slot.gd" id="2_tjctj"]
+[ext_resource type="Script" uid="uid://ca3ck21px7pcd" path="res://Version_0.0.2/Scripts/inverntory_panel.gd" id="2_tjctj"]
 
 [node name="Inventory_Panel" type="NinePatchRect"]
 custom_minimum_size = Vector2(384, 128)
