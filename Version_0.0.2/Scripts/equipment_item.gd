@@ -1,9 +1,11 @@
 extends TextureRect
 
-enum Type {HEAD, CHEST, ARM, WAIST, LEGS, GENERAL}
+enum Type {HEAD, NECK, SHOULDERS, MAINHAND, OFFHAND, RING1, RING2, WAIST, LEGS, FEET, GENERAL}
 @export var type: Type
-@export var data: Resource
-	
+
+func custom_init(t: String) -> void:
+	type = Type[t]
+
 func _get_drag_data(at_position: Vector2):
 	set_drag_preview(make_drag_preview(at_position))
 	return self

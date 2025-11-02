@@ -1,7 +1,6 @@
-class_name ItemDataOld
 extends Resource
 
-enum Type {HEAD, CHEST, ARM, WAIST, LEGS, GENERAL}
+enum Type {HEAD, NECK, SHOULDERS, MAINHAND, OFFHAND, RING1, RING2, WAIST, LEGS, FEET, GENERAL}
 
 @export var is_equipped: bool
 @export var type: Type
