@@ -2,6 +2,7 @@ extends Resource
 
 enum Type {HEAD, NECK, SHOULDERS, MAINHAND, OFFHAND, RING1, RING2, WAIST, LEGS, FEET, GENERAL}
 
+@export var id: int
 @export var is_equipped: bool
 @export var type: Type
 @export var name:String

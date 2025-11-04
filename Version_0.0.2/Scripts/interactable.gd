@@ -21,7 +21,7 @@ func _on_area_exited(area: Area2D) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact"):
 		if active:
-			SignalBus.item_collected.emit(item_res.duplicate())
+			SignalBus.item_collected.emit()
 			print("success")
 			self.queue_free()
 		else:

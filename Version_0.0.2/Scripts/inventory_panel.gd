@@ -5,6 +5,11 @@ var template_inv_slot = preload("res://Version_0.0.2/Scenes/Templates/inventory_
 @onready var grid_ref = $MarginContainer/Inventory_Grid
 
 func _ready() -> void:
+	SignalBus.connect("item_collected", Callable(self, "_update_inventory"))
+	
+	_update_inventory()
+
+func _update_inventory():
 	for i in PlayerData.inv_data.keys():
 		var inv_slot_new = template_inv_slot.instantiate()
 		if PlayerData.inv_data[i]["Item"] != null:
