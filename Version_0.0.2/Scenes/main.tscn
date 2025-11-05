@@ -9,5 +9,7 @@ script = ExtResource("1_e84un")
 
 [node name="GUI" parent="." instance=ExtResource("2_sq1q6")]
 
+[node name="LevelDock" type="Node2D" parent="."]
+
 [node name="item_generator" type="Node2D" parent="."]
 script = ExtResource("2_acuha")
