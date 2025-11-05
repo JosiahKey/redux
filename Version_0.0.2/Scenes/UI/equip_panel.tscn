@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://b0rpdgev7g01e"]
 
 [ext_resource type="Texture2D" uid="uid://c4i4828ywytqa" path="res://Version_0.0.2/Assets/gui_assets/equipment_panel_wow.png" id="1_6jjx5"]
-[ext_resource type="Script" uid="uid://cddixeeut3jdk" path="res://Version_0.0.2/Scripts/equip_panel.gd" id="2_bwogd"]
+[ext_resource type="Script" uid="uid://cddixeeut3jdk" path="res://Version_0.0.2/Scripts/UI/equip_panel.gd" id="2_bwogd"]
 [ext_resource type="Texture2D" uid="uid://f265tukk8y8m" path="res://Version_0.0.2/Assets/gui_assets/title.png" id="3_7mj1s"]
 [ext_resource type="Texture2D" uid="uid://cq5acehdgvwmg" path="res://Version_0.0.2/Assets/gui_assets/head_placehold.png" id="4_bwogd"]
 [ext_resource type="Texture2D" uid="uid://fox5aygm4t6a" path="res://Version_0.0.2/Assets/gui_assets/shoulder_placehold.png" id="5_7mj1s"]
-[ext_resource type="Script" uid="uid://bduo50txe30w1" path="res://Version_0.0.2/Scripts/equipment_slot.gd" id="5_b6koj"]
+[ext_resource type="Script" uid="uid://bduo50txe30w1" path="res://Version_0.0.2/Scripts/UI/equipment_slot.gd" id="5_b6koj"]
 [ext_resource type="Texture2D" uid="uid://qhhymcn31kdp" path="res://Version_0.0.2/Assets/item_assets/axe_epic.png" id="5_h0w6p"]
-[ext_resource type="Script" uid="uid://dv3o0egvveggd" path="res://Version_0.0.2/Scripts/equipment_item.gd" id="7_uft8k"]
+[ext_resource type="Script" uid="uid://dv3o0egvveggd" path="res://Version_0.0.2/Scripts/UI/equipment_item.gd" id="7_uft8k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ujh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

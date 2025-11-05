@@ -5,7 +5,13 @@ extends Node2D
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debuggenerateitem"):
-		ItemGeneration()
+		for i in PlayerData.inv_data.keys():
+			if PlayerData.inv_data[i]["Item"] == null:
+				PlayerData.inv_data[i]["Item"] = ItemGeneration()["item_id"]
+				print(JSON.stringify(PlayerData.inv_data))
+				SignalBus.item_collected.emit()
+				break
+
 
 func ItemGeneration() -> Dictionary:
 	var new_item: Dictionary = {}

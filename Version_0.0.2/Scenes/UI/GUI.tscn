@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dv60xwxh1ksyj"]
 
-[ext_resource type="Script" uid="uid://tgx1medbykp0" path="res://Version_0.0.2/Scripts/gui.gd" id="2_6epx1"]
+[ext_resource type="Script" uid="uid://tgx1medbykp0" path="res://Version_0.0.2/Scripts/UI/gui.gd" id="2_6epx1"]
 [ext_resource type="Texture2D" uid="uid://ra08dmiumxtv" path="res://Version_0.0.2/Assets/gui_assets/main_panel_2.png" id="3_5onyv"]
 [ext_resource type="Texture2D" uid="uid://cyhke3f7y1eo4" path="res://Version_0.0.2/Assets/gui_assets/x_normal.png" id="4_1uw08"]
 [ext_resource type="Texture2D" uid="uid://dfl08oflrqed7" path="res://Version_0.0.2/Assets/gui_assets/x_pressed.png" id="5_0rmo5"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxnkylfgwy2yv" path="res://Version_0.0.2/Assets/gui_assets/x_disabled.png" id="7_mlgb5"]
 [ext_resource type="PackedScene" uid="uid://dk1ohjole2bpy" path="res://Version_0.0.2/Scenes/UI/inventory_panel.tscn" id="8_h0al1"]
 [ext_resource type="PackedScene" uid="uid://b0rpdgev7g01e" path="res://Version_0.0.2/Scenes/UI/equip_panel.tscn" id="9_cxv1p"]
-[ext_resource type="Script" uid="uid://b3qqes2mk0ldk" path="res://Version_0.0.2/Scripts/stat_panel.gd" id="10_3kssp"]
+[ext_resource type="Script" uid="uid://b3qqes2mk0ldk" path="res://Version_0.0.2/Scripts/UI/stat_panel.gd" id="10_3kssp"]
 [ext_resource type="PackedScene" uid="uid://04v16ov611jq" path="res://Version_0.0.2/Scenes/UI/stat_panel.tscn" id="10_nc5sw"]
 
 [node name="GUI" type="CanvasLayer"]
