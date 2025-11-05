@@ -9,7 +9,7 @@ enum Type {HEAD, NECK, SHOULDERS, MAINHAND, OFFHAND, RING1, RING2, WAIST, LEGS, 
 @export var texture: Texture2D
 @export var damage_min: int
 @export var damage_max: int
-@export var min_Strength: int
+@export var min_strength: int
 @export var weight: int
 @export var commonMulti: float
 @export var uncommonMulti: float

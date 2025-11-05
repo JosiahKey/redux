@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://cwyowl2xk07sl"]
+[gd_scene load_steps=9 format=4 uid="uid://cwyowl2xk07sl"]
 
 [ext_resource type="Texture2D" uid="uid://cjf6assjhuimv" path="res://imported/zAssets/Tiles/world_tileset.png" id="1_itxbe"]
-[ext_resource type="PackedScene" uid="uid://bwv2mvgxikcru" path="res://Version_0.0.2/Scenes/next_level.tscn" id="2_i0hhb"]
-[ext_resource type="PackedScene" uid="uid://bgj3y8057tehy" path="res://Version_0.0.2/Scenes/interactable.tscn" id="3_ps6iv"]
-[ext_resource type="Script" uid="uid://b26deruoni51b" path="res://Version_0.0.2/Scripts/interactable.gd" id="4_c74jj"]
-[ext_resource type="PackedScene" uid="uid://g54w1ekq72fr" path="res://Version_0.0.2/Scenes/player.tscn" id="5_6xowg"]
+[ext_resource type="PackedScene" uid="uid://bwv2mvgxikcru" path="res://Version_0.0.2/Scenes/Templates/next_level.tscn" id="2_i0hhb"]
+[ext_resource type="PackedScene" uid="uid://bgj3y8057tehy" path="res://Version_0.0.2/Scenes/Templates/interactable.tscn" id="3_ps6iv"]
+[ext_resource type="PackedScene" uid="uid://g54w1ekq72fr" path="res://Version_0.0.2/Scenes/Templates/player.tscn" id="5_6xowg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fw2nl"]
 texture = ExtResource("1_itxbe")
@@ -310,7 +309,6 @@ position = Vector2(184, -24)
 
 [node name="interactable" parent="." instance=ExtResource("3_ps6iv")]
 position = Vector2(8, 24)
-script = ExtResource("4_c74jj")
 
 [node name="Player" parent="." instance=ExtResource("5_6xowg")]
 position = Vector2(-56, 72)

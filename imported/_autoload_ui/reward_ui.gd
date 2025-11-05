@@ -9,13 +9,13 @@ extends CanvasLayer
 var enemy_num_rewards: int = 2
 
 var item_data = {}
-var item_stats = ["damage_min", "damage_max", "min_Strength", "weight"]
-var item_scaling_stats = ["damage_min", "damage_max"]
 var item_rarity_ditribution = {"common": 60,
 	"uncommon": 27,
 	"rare": 9,
 	"epic": 3,
 	"legendary": 1}
+var item_stats = ["damage_min", "damage_max", "min_Strength", "weight"]
+var item_scaling_stats = ["damage_min", "damage_max"]
 
 func _ready():
 	var item_data_file = FileAccess.open("res://Data/Item_Table.json", FileAccess.READ)

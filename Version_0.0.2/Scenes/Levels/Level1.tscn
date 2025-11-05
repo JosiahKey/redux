@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://b33q12ml26eqe"]
 
 [ext_resource type="Texture2D" uid="uid://cjf6assjhuimv" path="res://imported/zAssets/Tiles/world_tileset.png" id="1_fl1wk"]
-[ext_resource type="PackedScene" uid="uid://bwv2mvgxikcru" path="res://Version_0.0.2/Scenes/next_level.tscn" id="2_3fxgv"]
-[ext_resource type="PackedScene" uid="uid://g54w1ekq72fr" path="res://Version_0.0.2/Scenes/player.tscn" id="3_l8dlx"]
+[ext_resource type="PackedScene" uid="uid://bwv2mvgxikcru" path="res://Version_0.0.2/Scenes/Templates/next_level.tscn" id="2_3fxgv"]
+[ext_resource type="PackedScene" uid="uid://g54w1ekq72fr" path="res://Version_0.0.2/Scenes/Templates/player.tscn" id="3_l8dlx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hjmfq"]
 texture = ExtResource("1_fl1wk")

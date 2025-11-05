@@ -1,7 +1,6 @@
 extends Area2D
 
 var active: bool = false
-@export var item_res: Resource
 
 func _on_next_level_entered(body):
 	if body.is_in_group("Player"):
@@ -21,7 +20,7 @@ func _on_area_exited(area: Area2D) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact"):
 		if active:
-			SignalBus.item_collected.emit()
+			#SignalBus.item_collected.emit()
 			print("success")
 			self.queue_free()
 		else:

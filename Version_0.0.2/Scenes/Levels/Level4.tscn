@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dktlfsjq84d2s" path="res://Version_0.0.2/Assets/backgorund.png" id="1_6uq0o"]
 [ext_resource type="TileSet" uid="uid://dvl6aa5wvymtp" path="res://Version_0.0.2/Resources/Generic_Tile_Set.tres" id="2_fqken"]
-[ext_resource type="PackedScene" uid="uid://bwv2mvgxikcru" path="res://Version_0.0.2/Scenes/next_level.tscn" id="3_6i476"]
-[ext_resource type="PackedScene" uid="uid://g54w1ekq72fr" path="res://Version_0.0.2/Scenes/player.tscn" id="4_o6tuc"]
+[ext_resource type="PackedScene" uid="uid://bwv2mvgxikcru" path="res://Version_0.0.2/Scenes/Templates/next_level.tscn" id="3_6i476"]
+[ext_resource type="PackedScene" uid="uid://g54w1ekq72fr" path="res://Version_0.0.2/Scenes/Templates/player.tscn" id="4_o6tuc"]
 
 [node name="Level4" type="Node2D"]
 
