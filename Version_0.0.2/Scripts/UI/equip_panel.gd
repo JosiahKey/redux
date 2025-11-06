@@ -13,7 +13,9 @@ func _update_equipped_items():
 			var item_name  = GameData.item_data[str(int(PlayerData.equipment_data[i]))]["name"]
 			var icon_texture =  load("res://Version_0.0.2/Assets/item_assets/"+ item_name +".png")
 			equip_slot_new.get_node("Icon").set_texture(icon_texture)
-			equip_slot_new.get_node("Icon").custom_init(GameData.item_data[
-				str(int(PlayerData.equipment_data[i]))]["equipmentSlot"])
+			equip_slot_new.get_node("Icon").custom_init(
+				GameData.item_data[str(int(PlayerData.equipment_data[i]))]["equipmentSlot"],
+				i,
+				str(PlayerData.equipment_data[i]))
 			print(equip_slot_new.get_node("Icon").type)
 		grid_ref.add_child(equip_slot_new, true)

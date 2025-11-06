@@ -5,7 +5,8 @@ var template_inv_slot = preload("res://Version_0.0.2/Scenes/Templates/inventory_
 @onready var grid_ref = $MarginContainer/Inventory_Grid
 
 func _ready() -> void:
-	SignalBus.connect("item_collected", Callable(self, "_update_inventory"))
+	SignalBus.connect("item_collected", Callable(self, "_pull_inventory_data"))
+	SignalBus.connect("item_moved", Callable(self, "_push_inventory_data"), ConnectFlags.CONNECT_DEFERRED)
 	
 	_init_inventory()
 
@@ -16,11 +17,13 @@ func _init_inventory():
 			var item_name = GameData.item_data[str(int(PlayerData.inv_data[i]["Item"]))]["name"]
 			var icon_texture = load("res://Version_0.0.2/Assets/item_assets/"+ item_name +".png")
 			inv_slot_new.get_node("Icon").set_texture(icon_texture)
-			inv_slot_new.get_node("Icon").custom_init(GameData.item_data[
-				str(int(PlayerData.inv_data[i]["Item"]))]["equipmentSlot"])
+			inv_slot_new.get_node("Icon").custom_init(
+				GameData.item_data[str(int(PlayerData.inv_data[i]["Item"]))]["equipmentSlot"],
+				i,
+				str(PlayerData.inv_data[i]["Item"]))
 		grid_ref.add_child(inv_slot_new, true)
 
-func _update_inventory():
+func _pull_inventory_data():
 	for n in grid_ref.get_children():
 		n.queue_free()
 	
@@ -30,6 +33,21 @@ func _update_inventory():
 			var item_name = GameData.item_data[str(int(PlayerData.inv_data[i]["Item"]))]["name"]
 			var icon_texture = load("res://Version_0.0.2/Assets/item_assets/"+ item_name +".png")
 			inv_slot_new.get_node("Icon").set_texture(icon_texture)
-			inv_slot_new.get_node("Icon").custom_init(GameData.item_data[
-				str(int(PlayerData.inv_data[i]["Item"]))]["equipmentSlot"])
+			inv_slot_new.get_node("Icon").custom_init(
+				GameData.item_data[str(int(PlayerData.inv_data[i]["Item"]))]["equipmentSlot"],
+				i,
+				str(PlayerData.inv_data[i]["Item"]))
 		grid_ref.add_child(inv_slot_new, true)
+
+func _push_inventory_data():
+	print(PlayerData.inv_data)
+	var ui_data: Dictionary = {}
+	for c in grid_ref.get_children():
+		if c.has_node("Icon"):
+			if c.get_node("Icon").inv_id != "":
+				var sub_dict: Dictionary = {"Item": float(c.get_node("Icon").item_id)}
+				ui_data[c.get_node("Icon").inv_id] = sub_dict
+	for item in PlayerData.inv_data.keys():
+		if ui_data.get(item) != null:
+			PlayerData.inv_data[item] = ui_data.get(item)
+	print(PlayerData.inv_data)

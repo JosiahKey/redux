@@ -20,3 +20,4 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			return
 		item.reparent(data.get_parent())
 	data.reparent(self)
+	SignalBus.item_moved.emit()
