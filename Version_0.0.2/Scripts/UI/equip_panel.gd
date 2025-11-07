@@ -7,10 +7,11 @@ func _ready() -> void:
 	_update_equipped_items()
 
 func _update_equipped_items():
+	var j = 1
 	for i in PlayerData.equipment_data.keys():
-		var equip_slot_new = template_inv_slot.instantiate()
 		if PlayerData.equipment_data[i] != null:
 			var item_name  = GameData.item_data[str(int(PlayerData.equipment_data[i]))]["name"]
 			var icon_texture =  load("res://Version_0.0.2/Assets/item_assets/"+ item_name +".png")
-			equip_slot_new.get_node("Icon").set_texture(icon_texture)
-		grid_ref.add_child(equip_slot_new, true)
+			print("TextureRect" +str(j)+ "/" + str(i) + "/Icon")
+			grid_ref.get_node("TextureRect" +str(j)+ "/" + str(i) + "/Icon").texture = icon_texture
+		j += 1

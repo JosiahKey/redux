@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0rpdgev7g01e"]
+[gd_scene load_steps=11 format=3 uid="uid://b0rpdgev7g01e"]
 
 [ext_resource type="Texture2D" uid="uid://c4i4828ywytqa" path="res://Version_0.0.2/Assets/gui_assets/equipment_panel_wow.png" id="1_6jjx5"]
 [ext_resource type="Script" uid="uid://cddixeeut3jdk" path="res://Version_0.0.2/Scripts/UI/equip_panel.gd" id="2_bwogd"]
 [ext_resource type="Texture2D" uid="uid://f265tukk8y8m" path="res://Version_0.0.2/Assets/gui_assets/title.png" id="3_7mj1s"]
 [ext_resource type="Texture2D" uid="uid://cq5acehdgvwmg" path="res://Version_0.0.2/Assets/gui_assets/head_placehold.png" id="4_bwogd"]
 [ext_resource type="Texture2D" uid="uid://fox5aygm4t6a" path="res://Version_0.0.2/Assets/gui_assets/shoulder_placehold.png" id="5_7mj1s"]
-[ext_resource type="Texture2D" uid="uid://qhhymcn31kdp" path="res://Version_0.0.2/Assets/item_assets/axe_epic.png" id="5_h0w6p"]
 [ext_resource type="Script" uid="uid://dv3o0egvveggd" path="res://Version_0.0.2/Scripts/UI/equipment_item.gd" id="7_uft8k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ujh"]
@@ -88,18 +87,18 @@ theme_override_constants/v_separation = 24
 columns = 2
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+[node name="TextureRect1" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
 texture = ExtResource("4_bwogd")
 
-[node name="Head" type="PanelContainer" parent="GridContainer/TextureRect"]
+[node name="Head" type="PanelContainer" parent="GridContainer/TextureRect1"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_i4ujh")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect/Head"]
+[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect1/Head"]
 layout_mode = 2
 script = ExtResource("7_uft8k")
 
@@ -150,5 +149,106 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("5_h0w6p")
+script = ExtResource("7_uft8k")
+
+[node name="TextureRect5" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_7mj1s")
+
+[node name="Offhand" type="PanelContainer" parent="GridContainer/TextureRect5"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect5/Offhand"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("7_uft8k")
+
+[node name="TextureRect6" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_7mj1s")
+
+[node name="Ring1" type="PanelContainer" parent="GridContainer/TextureRect6"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect6/Ring1"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("7_uft8k")
+
+[node name="TextureRect7" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_7mj1s")
+
+[node name="Ring2" type="PanelContainer" parent="GridContainer/TextureRect7"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect7/Ring2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("7_uft8k")
+
+[node name="TextureRect8" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_7mj1s")
+
+[node name="Waist" type="PanelContainer" parent="GridContainer/TextureRect8"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect8/Waist"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("7_uft8k")
+
+[node name="TextureRect9" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_7mj1s")
+
+[node name="Legs" type="PanelContainer" parent="GridContainer/TextureRect9"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect9/Legs"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("7_uft8k")
+
+[node name="TextureRect10" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_7mj1s")
+
+[node name="Feet" type="PanelContainer" parent="GridContainer/TextureRect10"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect10/Feet"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
 script = ExtResource("7_uft8k")
