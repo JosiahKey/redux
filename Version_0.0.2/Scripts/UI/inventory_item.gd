@@ -1,15 +1,16 @@
 extends TextureRect
+#this is sperate from equipment item so that we can deal with consumables and stackables later
 
 func _get_drag_data(at_position: Vector2):
-	var equipment_type = get_parent().get_name()
-	if PlayerData.equipment_data[equipment_type] != null:
+	var inv_slot = get_parent().get_name()
+	if PlayerData.inv_data[inv_slot]["Item"] != null:
 		var data: Dictionary = {}
 		data["origin_node"] = self
-		data["origin_panel"] = "Equip_Panel"
-		data["origin_item_id"] = PlayerData.equipment_data[equipment_type]
-		data["origin_equipment_type"] = equipment_type
+		data["origin_panel"] = "Inventory_Panel"
+		data["origin_item_id"] = PlayerData.inv_data[inv_slot]["Item"]
+		data["origin_equipment_type"] = GameData.item_data[str(int(PlayerData.inv_data[inv_slot]["Item"]))]["equipmentSlot"]
 		data["origin_texture"] = texture
-	
+
 		var drag_texture = TextureRect.new()
 		drag_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		drag_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -22,21 +23,27 @@ func _get_drag_data(at_position: Vector2):
 		drag_texture.position = Vector2(-at_position)
 		set_drag_preview(c)
 		
+		print(data)
 		return data
 		
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	var target_slot = get_parent().get_name()
-	if target_slot == data["origin_equipment_type"]:
-		if PlayerData.equipment_data[target_slot] == null:
-			data["target_item_id"] = null
-			data["target_texture"] = null
-		else:
-			data["target_item_id"] = PlayerData.equipment_data[target_slot]
-			data["target_texture"] = texture
+	if PlayerData.inv_data[target_slot]["Item"] == null:
+		data["target_item_id"] = null
+		data["target_texture"] = null
 		return true
 	else:
-		return false
-	
+		data["target_item_id"] = PlayerData.inv_data[target_slot]["Item"]
+		data["target_texture"] = texture
+		if data["origin_panel"] == "Equip_Panel":
+			var target_equipment_slot = GameData.item_data[str(int(PlayerData.inv_data[target_slot]["Item"]))]["equipmentSlot"]
+			if target_equipment_slot == data["origin_equipment_type"]:
+				return true
+			else:
+				return false
+		else: #data[origin_panel"] == "Inventory_Panel":
+			return true
+
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var target_equipment_type = get_parent().get_name()
@@ -52,5 +59,5 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	data["origin_node"].texture = data["target_texture"]
 	
 	#update texture and data of target
-	PlayerData.equipment_data[target_equipment_type] = data["origin_item_id"]
+	PlayerData.inv_data[target_equipment_type]["Item"] = data["origin_item_id"]
 	texture = data["origin_texture"]

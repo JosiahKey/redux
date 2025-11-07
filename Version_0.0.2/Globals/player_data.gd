@@ -5,7 +5,7 @@ var inv_data = {}
 var equipment_data = {
 	"Head": null,
 	"Neck": null,
-	"Shlouders": 10004,
+	"Shoulders": 10004,
 	"Mainhand": 10005,
 	"Offhand": null,
 	"Ring1": null,
