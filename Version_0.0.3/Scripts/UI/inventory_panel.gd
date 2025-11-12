@@ -35,8 +35,8 @@ func _push_inventory_data():
 	print(PlayerData.inv_data)
 	var ui_data: Dictionary = {}
 	for c in grid_ref.get_children():
-		if c.has_node("Icon"):
-			if c.get_node("Icon").inv_id != "":
+		if c.get_child(0).has_node("Icon"):
+			if c.get_child(0).get_node("Icon").inv_id != "":
 				var sub_dict: Dictionary = {"Item": float(c.get_node("Icon").item_id)}
 				ui_data[c.get_node("Icon").inv_id] = sub_dict
 	for item in PlayerData.inv_data.keys():
