@@ -1,20 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0rpdgev7g01e"]
+[gd_scene load_steps=19 format=3 uid="uid://b0rpdgev7g01e"]
 
 [ext_resource type="Texture2D" uid="uid://c4i4828ywytqa" path="res://Version_0.0.2/Assets/gui_assets/equipment_panel_wow.png" id="1_6jjx5"]
 [ext_resource type="Script" uid="uid://cddixeeut3jdk" path="res://Version_0.0.2/Scripts/UI/equip_panel.gd" id="2_bwogd"]
 [ext_resource type="Texture2D" uid="uid://f265tukk8y8m" path="res://Version_0.0.2/Assets/gui_assets/title.png" id="3_7mj1s"]
 [ext_resource type="Texture2D" uid="uid://cq5acehdgvwmg" path="res://Version_0.0.2/Assets/gui_assets/head_placehold.png" id="4_bwogd"]
 [ext_resource type="Texture2D" uid="uid://fox5aygm4t6a" path="res://Version_0.0.2/Assets/gui_assets/shoulder_placehold.png" id="5_7mj1s"]
+[ext_resource type="Texture2D" uid="uid://qc3fstidtb7h" path="res://Version_0.0.2/Assets/gui_assets/neck_placehold.png" id="6_xsb3h"]
 [ext_resource type="Script" uid="uid://dv3o0egvveggd" path="res://Version_0.0.2/Scripts/UI/equipment_item.gd" id="7_uft8k"]
+[ext_resource type="Texture2D" uid="uid://bflbd57giub5x" path="res://Version_0.0.2/Assets/gui_assets/mainhand_placeholder.png" id="8_2f173"]
+[ext_resource type="Texture2D" uid="uid://bjttkb50hyfto" path="res://Version_0.0.2/Assets/gui_assets/chest_placeholder.png" id="8_wl57u"]
+[ext_resource type="Texture2D" uid="uid://t7juunokqfo8" path="res://Version_0.0.2/Assets/gui_assets/offhand_placeholder.png" id="9_wl57u"]
+[ext_resource type="Texture2D" uid="uid://daq8rysx6x66c" path="res://Version_0.0.2/Assets/gui_assets/ring_placeholder.png" id="10_qpb0p"]
+[ext_resource type="Texture2D" uid="uid://clri8vu2ldgor" path="res://Version_0.0.2/Assets/gui_assets/waist_placeholder.png" id="11_jcxyl"]
+[ext_resource type="Texture2D" uid="uid://b0iagb8ukahdf" path="res://Version_0.0.2/Assets/gui_assets/legs_placeholder.png" id="12_ucyvf"]
+[ext_resource type="Texture2D" uid="uid://dnw5e3hmuwx83" path="res://Version_0.0.2/Assets/gui_assets/feet_placeholder.png" id="13_obmho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ujh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g71uc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpgkg"]
 draw_center = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpgkg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g71uc"]
 draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jhxf"]
@@ -87,167 +95,182 @@ theme_override_constants/v_separation = 24
 columns = 2
 metadata/_edit_lock_ = true
 
-[node name="TextureRect1" type="TextureRect" parent="GridContainer"]
+[node name="Head" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
 texture = ExtResource("4_bwogd")
 
-[node name="Head" type="PanelContainer" parent="GridContainer/TextureRect1"]
+[node name="Head" type="PanelContainer" parent="GridContainer/Head"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_i4ujh")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect1/Head"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Head/Head"]
 layout_mode = 2
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect2" type="TextureRect" parent="GridContainer"]
-layout_mode = 2
-texture = ExtResource("4_bwogd")
-
-[node name="Neck" type="PanelContainer" parent="GridContainer/TextureRect2"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 1
-offset_right = 32.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_g71uc")
-
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect2/Neck"]
-layout_mode = 2
-expand_mode = 1
-script = ExtResource("7_uft8k")
-
-[node name="TextureRect3" type="TextureRect" parent="GridContainer"]
+[node name="Shoulders" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
 texture = ExtResource("5_7mj1s")
 
-[node name="Shoulders" type="PanelContainer" parent="GridContainer/TextureRect3"]
+[node name="Shoulders" type="PanelContainer" parent="GridContainer/Shoulders"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jpgkg")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect3/Shoulders"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Shoulders/Shoulders"]
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect4" type="TextureRect" parent="GridContainer"]
+[node name="Neck" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_7mj1s")
+texture = ExtResource("6_xsb3h")
 
-[node name="Mainhand" type="PanelContainer" parent="GridContainer/TextureRect4"]
+[node name="Neck" type="PanelContainer" parent="GridContainer/Neck"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g71uc")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/Neck/Neck"]
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("7_uft8k")
+
+[node name="Chest" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_wl57u")
+
+[node name="Chest" type="PanelContainer" parent="GridContainer/Chest"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4ujh")
+
+[node name="Icon" type="TextureRect" parent="GridContainer/Chest/Chest"]
+layout_mode = 2
+script = ExtResource("7_uft8k")
+
+[node name="Mainhand" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_2f173")
+
+[node name="Mainhand" type="PanelContainer" parent="GridContainer/Mainhand"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect4/Mainhand"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Mainhand/Mainhand"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect5" type="TextureRect" parent="GridContainer"]
+[node name="Offhand" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_7mj1s")
+texture = ExtResource("9_wl57u")
 
-[node name="Offhand" type="PanelContainer" parent="GridContainer/TextureRect5"]
+[node name="Offhand" type="PanelContainer" parent="GridContainer/Offhand"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect5/Offhand"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Offhand/Offhand"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect6" type="TextureRect" parent="GridContainer"]
+[node name="Ring1" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_7mj1s")
+texture = ExtResource("10_qpb0p")
 
-[node name="Ring1" type="PanelContainer" parent="GridContainer/TextureRect6"]
+[node name="Ring1" type="PanelContainer" parent="GridContainer/Ring1"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect6/Ring1"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Ring1/Ring1"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect7" type="TextureRect" parent="GridContainer"]
+[node name="Ring2" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_7mj1s")
+texture = ExtResource("10_qpb0p")
 
-[node name="Ring2" type="PanelContainer" parent="GridContainer/TextureRect7"]
+[node name="Ring2" type="PanelContainer" parent="GridContainer/Ring2"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect7/Ring2"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Ring2/Ring2"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect8" type="TextureRect" parent="GridContainer"]
+[node name="Waist" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_7mj1s")
+texture = ExtResource("11_jcxyl")
 
-[node name="Waist" type="PanelContainer" parent="GridContainer/TextureRect8"]
+[node name="Waist" type="PanelContainer" parent="GridContainer/Waist"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect8/Waist"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Waist/Waist"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect9" type="TextureRect" parent="GridContainer"]
+[node name="Legs" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_7mj1s")
+texture = ExtResource("12_ucyvf")
 
-[node name="Legs" type="PanelContainer" parent="GridContainer/TextureRect9"]
+[node name="Legs" type="PanelContainer" parent="GridContainer/Legs"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect9/Legs"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Legs/Legs"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("7_uft8k")
 
-[node name="TextureRect10" type="TextureRect" parent="GridContainer"]
+[node name="Feet" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_7mj1s")
+texture = ExtResource("13_obmho")
 
-[node name="Feet" type="PanelContainer" parent="GridContainer/TextureRect10"]
+[node name="Feet" type="PanelContainer" parent="GridContainer/Feet"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jhxf")
 
-[node name="Icon" type="TextureRect" parent="GridContainer/TextureRect10/Feet"]
+[node name="Icon" type="TextureRect" parent="GridContainer/Feet/Feet"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4

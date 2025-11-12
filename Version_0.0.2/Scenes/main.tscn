@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvtda0r3crgrf"]
+[gd_scene load_steps=5 format=3 uid="uid://cvtda0r3crgrf"]
 
 [ext_resource type="Script" uid="uid://d1xucu6yu8xl6" path="res://Version_0.0.2/Scripts/main.gd" id="1_e84un"]
 [ext_resource type="Script" uid="uid://bcskejy2mvoce" path="res://Version_0.0.2/Scripts/item_generator.gd" id="2_acuha"]
 [ext_resource type="PackedScene" uid="uid://dv60xwxh1ksyj" path="res://Version_0.0.2/Scenes/UI/GUI.tscn" id="2_sq1q6"]
+[ext_resource type="AudioStream" uid="uid://bcaw3g6xegfto" path="res://Version_0.0.2/Assets/music/untitled.mp3" id="4_acuha"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_e84un")
@@ -13,3 +14,8 @@ script = ExtResource("1_e84un")
 
 [node name="item_generator" type="Node2D" parent="."]
 script = ExtResource("2_acuha")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_acuha")
+volume_db = 15.146
+autoplay = true
