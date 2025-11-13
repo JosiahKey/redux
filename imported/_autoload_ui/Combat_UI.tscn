@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://7vxln7mdom2i"]
+[gd_scene load_steps=9 format=3 uid="uid://7vxln7mdom2i"]
 
-[ext_resource type="Script" path="res://_autoload_ui/combat_ui.gd" id="1_dn0i3"]
 [ext_resource type="Texture2D" uid="uid://bqp1lksqtiy46" path="res://imported/zAssets/Menu/combat_border.png" id="3_haf18"]
 [ext_resource type="Texture2D" uid="uid://du7tl4axaudth" path="res://imported/zAssets/Menu/title.png" id="4_kubxt"]
 [ext_resource type="Texture2D" uid="uid://tac04n6jfe84" path="res://player_map_move_anima_colis/Sprites/spritesheets/knight.png" id="6_bg1fv"]
@@ -12,8 +11,6 @@
 
 [node name="Combat_UI" type="CanvasLayer"]
 process_mode = 2
-visible = false
-script = ExtResource("1_dn0i3")
 
 [node name="Frame" type="NinePatchRect" parent="."]
 texture_filter = 1

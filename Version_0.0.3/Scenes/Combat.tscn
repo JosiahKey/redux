@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://byotebi1xyoe7"]
+
+[ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(3, 3)
+
+[node name="Background_Image" type="TextureRect" parent="."]
+offset_right = 361.0
+offset_bottom = 241.0
+texture = ExtResource("1_anr3a")
+
+[node name="Combat_Actors" type="CanvasLayer" parent="."]
+follow_viewport_scale = 3.0
+
+[node name="Combat_Menu" type="CanvasLayer" parent="."]
+
+[node name="Sub_Menus" type="HBoxContainer" parent="Combat_Menu"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Combat_Menu/Sub_Menus"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Combat_Menu/Sub_Menus"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Combat_Menu/Sub_Menus"]
+layout_mode = 2
