@@ -20,6 +20,6 @@ func _update_stat_panel():
 	body_label.text = str(PlayerData.stat_data["Body"])
 	spr_label.text = str(PlayerData.stat_data["Spirit"])
 	max_hp_label.text = str(PlayerData.stat_data["Max_hp"])
-	dmg_label.text = str(PlayerData.stat_data["Total_equipped_damage_min"]) + " - " + str(
-						PlayerData.stat_data["Total_equipped_damage_max"])
-	weight_label.text = str(PlayerData.stat_data["Total_equipped_weight"])
+	dmg_label.text = str(int(PlayerData.stat_data["Total_equipped_damage_min"])) + " - " + str(int(
+						PlayerData.stat_data["Total_equipped_damage_max"]))
+	weight_label.text = str(int(PlayerData.stat_data["Total_equipped_weight"]))

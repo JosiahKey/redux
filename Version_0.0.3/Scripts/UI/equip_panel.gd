@@ -5,6 +5,7 @@ extends NinePatchRect
 func _ready() -> void:
 	SignalBus.connect("item_equipped", Callable(self, "_update_equipped_stats"))
 	_update_equipped_items()
+	SignalBus.item_equipped.emit()
 
 func _update_equipped_items():
 	for i in PlayerData.equipment_data.keys():

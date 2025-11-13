@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://2726ljvtct3q"]
+[gd_scene load_steps=3 format=3 uid="uid://2726ljvtct3q"]
 
 [ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="1_ld0t3"]
-[ext_resource type="Script" uid="uid://dubhowh1yr1vt" path="res://gui_v0.1/Scripts/stat_panel.gd" id="2_fyws4"]
-[ext_resource type="Texture2D" uid="uid://bkyixun3ljlmh" path="res://gui_v0.1/Assets/inner_panel_grey.png" id="3_f24qq"]
+[ext_resource type="Texture2D" uid="uid://qwykgegr7n1v" path="res://Version_0.0.3/Assets/gui_assets/inner_panel_grey.png" id="2_vj6ne"]
 
 [node name="Stat_Panel" type="NinePatchRect"]
 custom_minimum_size = Vector2(384, 256)
@@ -13,22 +12,48 @@ patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
-script = ExtResource("2_fyws4")
+metadata/_edit_lock_ = true
 
 [node name="Stat_Grid" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 40.0
-offset_right = 344.0
-offset_bottom = 232.0
-theme_override_constants/h_separation = 104
-theme_override_constants/v_separation = 16
-columns = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042000003
+anchor_top = 0.062000003
+anchor_right = 0.95800006
+anchor_bottom = 0.93700004
+offset_left = -0.12800217
+offset_top = 16.127998
+offset_right = 0.12799072
+offset_bottom = -15.872009
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 24
+columns = 4
+
+[node name="Health_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Health_Text"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Health_Points_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
+texture = ExtResource("2_vj6ne")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -37,12 +62,9 @@ patch_margin_bottom = 6
 [node name="stat_num" type="Label" parent="Stat_Grid/Health_Points_Stat_Label"]
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -50,32 +72,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Health_Points_Stat_Label"]
+[node name="Strength_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Strength_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Health"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Health_Points_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Strength"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Strength_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
+texture = ExtResource("2_vj6ne")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -83,12 +102,9 @@ patch_margin_bottom = 6
 
 [node name="stat_num" type="Label" parent="Stat_Grid/Strength_Stat_Label"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -96,32 +112,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Strength_Stat_Label"]
+[node name="Speed_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Speed_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Strength"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Strength_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Speed_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
+texture = ExtResource("2_vj6ne")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -129,12 +142,9 @@ patch_margin_bottom = 6
 
 [node name="stat_num" type="Label" parent="Stat_Grid/Speed_Stat_Label"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -142,32 +152,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Speed_Stat_Label"]
+[node name="Vitality_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Vitality_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Speed"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Speed_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Vitality"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Vitality_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
+texture = ExtResource("2_vj6ne")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -175,12 +182,9 @@ patch_margin_bottom = 6
 
 [node name="stat_num" type="Label" parent="Stat_Grid/Vitality_Stat_Label"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -188,32 +192,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Vitality_Stat_Label"]
+[node name="Body_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Body_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Vitality"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Vitality_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Body"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Body_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
+texture = ExtResource("2_vj6ne")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -221,12 +222,9 @@ patch_margin_bottom = 6
 
 [node name="stat_num" type="Label" parent="Stat_Grid/Body_Stat_Label"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -234,32 +232,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Body_Stat_Label"]
+[node name="Spirit_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Spirit_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Body"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Body_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Spirit"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Spirit_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
+texture = ExtResource("2_vj6ne")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -267,12 +262,9 @@ patch_margin_bottom = 6
 
 [node name="stat_num" type="Label" parent="Stat_Grid/Spirit_Stat_Label"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -280,78 +272,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Spirit_Stat_Label"]
-z_as_relative = false
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Spirit"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Spirit_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Damage_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+[node name="Weight_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
 
-[node name="stat_num" type="Label" parent="Stat_Grid/Damage_Stat_Label"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="stat_label" type="Label" parent="Stat_Grid/Damage_Stat_Label"]
+[node name="stat_label" type="Label" parent="Stat_Grid/Weight_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Damage"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Damage_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Weight"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Weight_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-texture = ExtResource("3_f24qq")
+texture = ExtResource("2_vj6ne")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -359,12 +302,9 @@ patch_margin_bottom = 6
 
 [node name="stat_num" type="Label" parent="Stat_Grid/Weight_Stat_Label"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -372,24 +312,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Weight_Stat_Label"]
+[node name="Damage_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Damage_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Weight"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Weight_Stat_Label/stat_label"]
-z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Damage_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+texture = ExtResource("2_vj6ne")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Damage_Stat_Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true

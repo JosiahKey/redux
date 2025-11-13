@@ -11,9 +11,9 @@ var stat_data = {
 	"Max_hp": 10,
 	"Current_hp": 10,
 	"Total_equipped_damage_min": 0,
-	"Total_equipped_damage_max": 5,
-	"Highest_equipped_min_strength": 2,
-	"Total_equipped_weight": 5
+	"Total_equipped_damage_max": 0,
+	"Highest_equipped_min_strength": 0,
+	"Total_equipped_weight": 0
 }
 
 var equipment_data = {
