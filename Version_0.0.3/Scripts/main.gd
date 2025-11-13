@@ -3,11 +3,11 @@ extends Node2D
 var level_counter: int = 0
 var level_max: int = 0
 @onready var Level_List: Array[PackedScene] = [
-	preload("res://Version_0.0.2/Scenes/Levels/Level0.tscn"),
-	preload("res://Version_0.0.2/Scenes/Levels/Level1.tscn"),
-	preload("res://Version_0.0.2/Scenes/Levels/Level2.tscn"),
-	preload("res://Version_0.0.2/Scenes/Levels/Level3.tscn"),
-	preload("res://Version_0.0.2/Scenes/Levels/Level4.tscn")
+	preload("res://Version_0.0.3/Scenes/Levels/Level0.tscn"),
+	preload("res://Version_0.0.3/Scenes/Levels/Level1.tscn"),
+	preload("res://Version_0.0.3/Scenes/Levels/Level2.tscn"),
+	preload("res://Version_0.0.3/Scenes/Levels/Level3.tscn"),
+	preload("res://Version_0.0.3/Scenes/Levels/Level4.tscn")
 ]
 
 

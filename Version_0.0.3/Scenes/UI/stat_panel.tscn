@@ -26,7 +26,6 @@ theme_override_constants/v_separation = 16
 columns = 2
 
 [node name="Health_Points_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 texture = ExtResource("3_f24qq")
@@ -46,7 +45,7 @@ offset_top = -12.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1001"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -74,7 +73,6 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Strength_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 texture = ExtResource("3_f24qq")
@@ -93,7 +91,7 @@ offset_top = -12.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1001"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -121,7 +119,6 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Speed_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 texture = ExtResource("3_f24qq")
@@ -140,7 +137,7 @@ offset_top = -12.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1001"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -167,8 +164,145 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
+[node name="Vitality_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = ExtResource("3_f24qq")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Vitality_Stat_Label"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Vitality_Stat_Label"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_left = -72.0
+offset_bottom = 32.0
+text = "Vitality"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Vitality_Stat_Label/stat_label"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Body_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = ExtResource("3_f24qq")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Body_Stat_Label"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Body_Stat_Label"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_left = -72.0
+offset_bottom = 32.0
+text = "Body"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Body_Stat_Label/stat_label"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Spirit_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture = ExtResource("3_f24qq")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Spirit_Stat_Label"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Spirit_Stat_Label"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_left = -72.0
+offset_bottom = 32.0
+text = "Spirit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Spirit_Stat_Label/stat_label"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
 [node name="Damage_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 texture = ExtResource("3_f24qq")
@@ -187,7 +321,7 @@ offset_top = -12.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1001"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -214,7 +348,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Stat_Field5" type="NinePatchRect" parent="Stat_Grid"]
+[node name="Weight_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 texture = ExtResource("3_f24qq")
@@ -223,7 +357,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="stat_num" type="Label" parent="Stat_Grid/Stat_Field5"]
+[node name="stat_num" type="Label" parent="Stat_Grid/Weight_Stat_Label"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -233,160 +367,22 @@ offset_top = -12.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1001"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Stat_Field5"]
+[node name="stat_label" type="Label" parent="Stat_Grid/Weight_Stat_Label"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 0
 offset_left = -72.0
 offset_bottom = 32.0
-text = "Sample"
+text = "Weight"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Stat_Field5/stat_label"]
-z_index = -1
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Stat_Field6" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-texture = ExtResource("3_f24qq")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="stat_num" type="Label" parent="Stat_Grid/Stat_Field6"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1001"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="stat_label" type="Label" parent="Stat_Grid/Stat_Field6"]
-z_as_relative = false
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Sample"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Stat_Field6/stat_label"]
-z_index = -1
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Stat_Field7" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-texture = ExtResource("3_f24qq")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="stat_num" type="Label" parent="Stat_Grid/Stat_Field7"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1001"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="stat_label" type="Label" parent="Stat_Grid/Stat_Field7"]
-z_as_relative = false
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Sample"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Stat_Field7/stat_label"]
-z_index = -1
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Stat_Field8" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-texture = ExtResource("3_f24qq")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="stat_num" type="Label" parent="Stat_Grid/Stat_Field8"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -12.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1001"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="stat_label" type="Label" parent="Stat_Grid/Stat_Field8"]
-z_as_relative = false
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 0
-offset_left = -72.0
-offset_bottom = 32.0
-text = "Sample"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Stat_Field8/stat_label"]
+[node name="ColorRect" type="ColorRect" parent="Stat_Grid/Weight_Stat_Label/stat_label"]
 z_index = -1
 z_as_relative = false
 layout_mode = 1

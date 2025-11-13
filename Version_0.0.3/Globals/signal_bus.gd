@@ -6,4 +6,8 @@ signal item_collected
 @warning_ignore("unused_signal")
 signal item_equipped
 @warning_ignore("unused_signal")
+signal item_unequipped
+@warning_ignore("unused_signal")
+signal equipment_updated
+@warning_ignore("unused_signal")
 signal item_moved

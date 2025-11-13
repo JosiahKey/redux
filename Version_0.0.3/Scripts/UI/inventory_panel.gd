@@ -1,6 +1,6 @@
 extends Control
 
-var template_inv_slot = preload("res://Version_0.0.2/Scenes/Templates/inventory_slot.tscn")
+var template_inv_slot = preload("res://Version_0.0.3/Scenes/Templates/inventory_slot.tscn")
 
 @onready var grid_ref = $MarginContainer/Inventory_Grid
 
@@ -15,7 +15,7 @@ func _init_inventory():
 		var inv_slot_new = template_inv_slot.instantiate()
 		if PlayerData.inv_data[i]["Item"] != null:
 			var item_name = GameData.item_data[str(int(PlayerData.inv_data[i]["Item"]))]["name"]
-			var icon_texture = load("res://Version_0.0.2/Assets/item_assets/"+ item_name +".png")
+			var icon_texture = load("res://Version_0.0.3/Assets/item_assets/"+ item_name +".png")
 			inv_slot_new.get_node("Icon").set_texture(icon_texture)
 		grid_ref.add_child(inv_slot_new, true)
 
@@ -27,12 +27,11 @@ func _pull_inventory_data():
 		var inv_slot_new = template_inv_slot.instantiate()
 		if PlayerData.inv_data[i]["Item"] != null:
 			var item_name = GameData.item_data[str(int(PlayerData.inv_data[i]["Item"]))]["name"]
-			var icon_texture = load("res://Version_0.0.2/Assets/item_assets/"+ item_name +".png")
+			var icon_texture = load("res://Version_0.0.3/Assets/item_assets/"+ item_name +".png")
 			inv_slot_new.get_node("Icon").set_texture(icon_texture)
 		grid_ref.add_child(inv_slot_new, true)
 
 func _push_inventory_data():
-	print(PlayerData.inv_data)
 	var ui_data: Dictionary = {}
 	for c in grid_ref.get_children():
 		if c.get_child(0).has_node("Icon"):
@@ -42,4 +41,3 @@ func _push_inventory_data():
 	for item in PlayerData.inv_data.keys():
 		if ui_data.get(item) != null:
 			PlayerData.inv_data[item] = ui_data.get(item)
-	print(PlayerData.inv_data)

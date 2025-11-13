@@ -1,19 +1,25 @@
 extends NinePatchRect
 
-var _stat_labels :Array[Label]
+@onready var  max_hp_label = $Stat_Grid/Health_Points_Stat_Label/stat_num
+@onready var  strength_label = $Stat_Grid/Strength_Stat_Label/stat_num
+@onready var  dex_label = $Stat_Grid/Speed_Stat_Label/stat_num
+@onready var  vit_label = $Stat_Grid/Vitality_Stat_Label/stat_num
+@onready var  body_label = $Stat_Grid/Body_Stat_Label/stat_num
+@onready var  spr_label = $Stat_Grid/Spirit_Stat_Label/stat_num
+@onready var  dmg_label = $Stat_Grid/Damage_Stat_Label/stat_num
+@onready var  weight_label = $Stat_Grid/Weight_Stat_Label/stat_num
 
 func _ready() -> void:
-	_stat_labels.append(%Health_Points_Stat_Label/stat_num)
-	_stat_labels.append(%Strength_Stat_Label/stat_num)
-	_stat_labels.append(%Speed_Stat_Label/stat_num)
-	_stat_labels.append(%Damage_Stat_Label/stat_num)
-	
+	SignalBus.connect("equipment_updated", Callable(self, "_update_stat_panel"))
 	_update_stat_panel()
 
-
 func _update_stat_panel():
-	for i in PlayerData.equipment_data.keys():
-		if PlayerData.equipment_data[i] != null:
-			var item_damage = GameData.item_data[str(int(PlayerData.equipment_data[i]))]["damage_max"]
-			var int_text = int(_stat_labels[3].text)
-			_stat_labels[3].text = str(int_text + (int(item_damage)))
+	strength_label.text = str(PlayerData.stat_data["Strength"])
+	dex_label.text = str(PlayerData.stat_data["Dexterity"])
+	vit_label.text = str(PlayerData.stat_data["Vitality"])
+	body_label.text = str(PlayerData.stat_data["Body"])
+	spr_label.text = str(PlayerData.stat_data["Spirit"])
+	max_hp_label.text = str(PlayerData.stat_data["Max_hp"])
+	dmg_label.text = str(PlayerData.stat_data["Total_equipped_damage_min"]) + " - " + str(
+						PlayerData.stat_data["Total_equipped_damage_max"])
+	weight_label.text = str(PlayerData.stat_data["Total_equipped_weight"])

@@ -23,7 +23,6 @@ func _get_drag_data(at_position: Vector2):
 		drag_texture.position = Vector2(-at_position)
 		set_drag_preview(c)
 		
-		print(data)
 		return data
 		
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
@@ -54,7 +53,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		PlayerData.inv_data[origin_slot]["Item"] = data["target_item_id"]
 	else:
 		PlayerData.equipment_data[origin_slot] = data["target_item_id"]
-		
+		SignalBus.item_equipped.emit()
+	
 	#update origin text
 	data["origin_node"].texture = data["target_texture"]
 	

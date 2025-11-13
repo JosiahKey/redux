@@ -2,6 +2,20 @@ extends Node
 
 var inv_data = {}
 
+var stat_data = {
+	"Strength": 1,
+	"Dexterity": 1,
+	"Vitality": 1,
+	"Body": 1,
+	"Spirit": 1,
+	"Max_hp": 10,
+	"Current_hp": 10,
+	"Total_equipped_damage_min": 0,
+	"Total_equipped_damage_max": 5,
+	"Highest_equipped_min_strength": 2,
+	"Total_equipped_weight": 5
+}
+
 var equipment_data = {
 	"Head": 10001,
 	"Neck": null,

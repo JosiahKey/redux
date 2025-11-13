@@ -16,9 +16,9 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
-GameData="*res://Version_0.0.2/Globals/game_data.gd"
-PlayerData="*res://Version_0.0.2/Globals/player_data.gd"
-SignalBus="*res://Version_0.0.2/Globals/signal_bus.gd"
+SignalBus="*res://Version_0.0.3/Globals/signal_bus.gd"
+GameData="*res://Version_0.0.3/Globals/game_data.gd"
+PlayerData="*res://Version_0.0.3/Globals/player_data.gd"
 
 [display]
 

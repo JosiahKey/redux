@@ -54,3 +54,5 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	#update texture and data of target
 	PlayerData.equipment_data[target_equipment_type] = data["origin_item_id"]
 	texture = data["origin_texture"]
+	
+	SignalBus.item_equipped.emit()
