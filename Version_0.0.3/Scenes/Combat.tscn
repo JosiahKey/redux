@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://byotebi1xyoe7"]
+[gd_scene load_steps=6 format=3 uid="uid://byotebi1xyoe7"]
 
 [ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
-[ext_resource type="Texture2D" uid="uid://cxo6u81p07oa8" path="res://Version_0.0.3/Assets/gui_assets/main_panel_2.png" id="2_lm3ry"]
+[ext_resource type="Texture2D" uid="uid://csqdaq5q7mohx" path="res://Version_0.0.3/Assets/gui_assets/combat_panel.png" id="2_lm3ry"]
+[ext_resource type="Texture2D" uid="uid://1ypxsc17n3ug" path="res://Version_0.0.3/Assets/knight.png" id="3_46t2p"]
+[ext_resource type="Texture2D" uid="uid://c3ems156ysuqe" path="res://Version_0.0.3/Assets/slime_green.png" id="4_mi7to"]
+[ext_resource type="Texture2D" uid="uid://cwlh86nqd8h0v" path="res://Version_0.0.3/Assets/slime_purple.png" id="5_g4qrr"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(3, 3)
 
 [node name="Background_Image" type="TextureRect" parent="."]
 offset_right = 361.0
@@ -21,14 +23,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -48.0
-offset_right = 50.0
+offset_left = -384.0
+offset_top = -156.0
+offset_right = 384.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
-custom_minimum_size = Vector2(100, 48)
+[node name="Player_Panel" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
+custom_minimum_size = Vector2(256, 128)
 layout_mode = 2
 texture = ExtResource("2_lm3ry")
 patch_margin_left = 12
@@ -36,16 +40,38 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/Player_Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -53.0
+offset_right = 110.0
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer2" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
-custom_minimum_size = Vector2(100, 48)
+[node name="Label" type="Label" parent="Background_Image/Sub_Menus/Player_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<player name>"
+
+[node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Player_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<hp: xx/xx>"
+
+[node name="Label3" type="Label" parent="Background_Image/Sub_Menus/Player_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<Status: normal>"
+
+[node name="Label4" type="Label" parent="Background_Image/Sub_Menus/Player_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<EXP: 1,000,000,000,000>"
+
+[node name="Action_Panel" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
+custom_minimum_size = Vector2(256, 128)
 layout_mode = 2
 texture = ExtResource("2_lm3ry")
 patch_margin_left = 12
@@ -53,16 +79,38 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/PanelContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/Action_Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -53.0
+offset_right = 110.0
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer3" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
-custom_minimum_size = Vector2(100, 48)
+[node name="Label" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<Attack>"
+
+[node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<Defend>"
+
+[node name="Label3" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<Ability>"
+
+[node name="Label4" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+layout_mode = 2
+text = "<Run>"
+
+[node name="Player_Panel3" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
+custom_minimum_size = Vector2(256, 128)
 layout_mode = 2
 texture = ExtResource("2_lm3ry")
 patch_margin_left = 12
@@ -70,10 +118,88 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/PanelContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/Player_Panel3"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -53.0
+offset_right = 110.0
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
+layout_mode = 2
+text = "<green slime>"
+
+[node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
+layout_mode = 2
+text = "<purple slime>"
+
+[node name="Label3" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Player_Sprite" type="Sprite2D" parent="Background_Image"]
+position = Vector2(277, 477)
+scale = Vector2(3, 3)
+texture = ExtResource("3_46t2p")
+region_enabled = true
+region_rect = Rect2(0, 0, 31, 29)
+
+[node name="Enemy_Sprites" type="HBoxContainer" parent="Background_Image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 59.0
+offset_top = 56.0
+offset_right = 453.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Enemy1" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background_Image/Enemy_Sprites/Enemy1"]
+position = Vector2(-5, 19)
+scale = Vector2(3, 3)
+texture = ExtResource("4_mi7to")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(72, 24, 24, 24)
+
+[node name="Enemy2" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background_Image/Enemy_Sprites/Enemy2"]
+position = Vector2(-3, 20)
+scale = Vector2(3, 3)
+texture = ExtResource("5_g4qrr")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(72, 24, 24, 24)
+
+[node name="Enemy3" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Enemy4" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
