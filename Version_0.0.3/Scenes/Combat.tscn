@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://byotebi1xyoe7"]
+[gd_scene load_steps=3 format=3 uid="uid://byotebi1xyoe7"]
 
 [ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
+[ext_resource type="Texture2D" uid="uid://cxo6u81p07oa8" path="res://Version_0.0.3/Assets/gui_assets/main_panel_2.png" id="2_lm3ry"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,20 +14,66 @@ offset_right = 361.0
 offset_bottom = 241.0
 texture = ExtResource("1_anr3a")
 
-[node name="Combat_Actors" type="CanvasLayer" parent="."]
-follow_viewport_scale = 3.0
+[node name="Sub_Menus" type="HBoxContainer" parent="Background_Image"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -48.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Combat_Menu" type="CanvasLayer" parent="."]
-
-[node name="Sub_Menus" type="HBoxContainer" parent="Combat_Menu"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Combat_Menu/Sub_Menus"]
+[node name="PanelContainer" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
+custom_minimum_size = Vector2(100, 48)
 layout_mode = 2
+texture = ExtResource("2_lm3ry")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Combat_Menu/Sub_Menus"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/PanelContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Combat_Menu/Sub_Menus"]
+[node name="PanelContainer2" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
+custom_minimum_size = Vector2(100, 48)
 layout_mode = 2
+texture = ExtResource("2_lm3ry")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/PanelContainer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer3" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+texture = ExtResource("2_lm3ry")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/PanelContainer3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
