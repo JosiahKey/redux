@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxps7neux16fm"]
+
+[ext_resource type="Texture2D" uid="uid://wgp86n55jbya" path="res://Godot-particle-and-vfx-textures-main/axe_uncommon.png" id="1_lmift"]
+[ext_resource type="Texture2D" uid="uid://bdkr0jf00rgip" path="res://Godot-particle-and-vfx-textures-main/textures/256/alpha/effect_1.png" id="2_6kdqs"]
+
+[node name="VfxTest" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(514, 325)
+texture = ExtResource("1_lmift")
+
+[node name="Control" type="Control" parent="Sprite2D"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D/Control"]
+position = Vector2(1, 4)
+amount = 1
+texture = ExtResource("2_6kdqs")
+randomness = 0.1
+gravity = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

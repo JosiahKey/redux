@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Redux"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Player=""
