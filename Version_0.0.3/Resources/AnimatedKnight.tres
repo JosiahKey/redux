@@ -99,6 +99,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{

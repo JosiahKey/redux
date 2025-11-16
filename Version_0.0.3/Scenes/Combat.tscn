@@ -1,10 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://byotebi1xyoe7"]
+[gd_scene load_steps=11 format=3 uid="uid://byotebi1xyoe7"]
 
 [ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
 [ext_resource type="Texture2D" uid="uid://csqdaq5q7mohx" path="res://Version_0.0.3/Assets/gui_assets/combat_panel.png" id="2_lm3ry"]
-[ext_resource type="Texture2D" uid="uid://1ypxsc17n3ug" path="res://Version_0.0.3/Assets/knight.png" id="3_46t2p"]
-[ext_resource type="Texture2D" uid="uid://c3ems156ysuqe" path="res://Version_0.0.3/Assets/slime_green.png" id="4_mi7to"]
+[ext_resource type="SpriteFrames" uid="uid://dwbt0ujgfb83s" path="res://Version_0.0.3/Resources/AnimatedKnight.tres" id="3_cqrb7"]
+[ext_resource type="SpriteFrames" uid="uid://pesj6qtuh75c" path="res://Version_0.0.3/Resources/AnimatedGreenSlime.tres" id="4_46t2p"]
 [ext_resource type="Texture2D" uid="uid://cwlh86nqd8h0v" path="res://Version_0.0.3/Assets/slime_purple.png" id="5_g4qrr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi7to"]
+atlas = ExtResource("5_g4qrr")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4qrr"]
+atlas = ExtResource("5_g4qrr")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqiim"]
+atlas = ExtResource("5_g4qrr")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcjnu"]
+atlas = ExtResource("5_g4qrr")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dpwsi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi7to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4qrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqiim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcjnu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
@@ -146,12 +182,12 @@ layout_mode = 2
 [node name="Label4" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
 layout_mode = 2
 
-[node name="Player_Sprite" type="Sprite2D" parent="Background_Image"]
+[node name="Player_Sprite" type="AnimatedSprite2D" parent="Background_Image"]
 position = Vector2(277, 477)
 scale = Vector2(3, 3)
-texture = ExtResource("3_46t2p")
-region_enabled = true
-region_rect = Rect2(0, 0, 31, 29)
+sprite_frames = ExtResource("3_cqrb7")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Enemy_Sprites" type="HBoxContainer" parent="Background_Image"]
 layout_mode = 1
@@ -173,26 +209,24 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background_Image/Enemy_Sprites/Enemy1"]
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="Background_Image/Enemy_Sprites/Enemy1"]
 position = Vector2(-5, 19)
 scale = Vector2(3, 3)
-texture = ExtResource("4_mi7to")
+sprite_frames = ExtResource("4_46t2p")
+autoplay = "default"
 flip_h = true
-region_enabled = true
-region_rect = Rect2(72, 24, 24, 24)
 
 [node name="Enemy2" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background_Image/Enemy_Sprites/Enemy2"]
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="Background_Image/Enemy_Sprites/Enemy2"]
 position = Vector2(-3, 20)
 scale = Vector2(3, 3)
-texture = ExtResource("5_g4qrr")
+sprite_frames = SubResource("SpriteFrames_dpwsi")
+autoplay = "default"
 flip_h = true
-region_enabled = true
-region_rect = Rect2(72, 24, 24, 24)
 
 [node name="Enemy3" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
 layout_mode = 2
