@@ -18,3 +18,4 @@ script = ExtResource("3_2jltt")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_0342n")
 volume_db = 14.136
+autoplay = true

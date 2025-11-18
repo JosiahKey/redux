@@ -1,34 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxps7neux16fm"]
+[gd_scene load_steps=7 format=3 uid="uid://cxps7neux16fm"]
 
 [ext_resource type="Texture2D" uid="uid://wgp86n55jbya" path="res://Godot-particle-and-vfx-textures-main/axe_uncommon.png" id="1_lmift"]
-[ext_resource type="Texture2D" uid="uid://bdkr0jf00rgip" path="res://Godot-particle-and-vfx-textures-main/textures/256/alpha/effect_1.png" id="2_6kdqs"]
+[ext_resource type="Material" uid="uid://dfb1pviaqtarp" path="res://Godot-particle-and-vfx-textures-main/vfx_test.tres" id="2_6kdqs"]
+[ext_resource type="Texture2D" uid="uid://bxyakaytuhrvr" path="res://Godot-particle-and-vfx-textures-main/textures/particle_examples/alpha/floaty_32.png" id="3_24o1a"]
+
+[sub_resource type="Gradient" id="Gradient_6kdqs"]
+colors = PackedColorArray(1, 1, 0, 1, 0.039215688, 1, 0.32941177, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_24o1a"]
+gradient = SubResource("Gradient_6kdqs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u5pwg"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.3
+color_initial_ramp = SubResource("GradientTexture1D_24o1a")
+anim_speed_max = 1.0
 
 [node name="VfxTest" type="Node2D"]
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = ExtResource("2_6kdqs")
+position = Vector2(0, -1)
+amount = 3
+texture = ExtResource("3_24o1a")
+randomness = 0.02
+process_material = SubResource("ParticleProcessMaterial_u5pwg")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(514, 325)
+position = Vector2(0, -1)
 texture = ExtResource("1_lmift")
 
-[node name="Control" type="Control" parent="Sprite2D"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D/Control"]
-position = Vector2(1, 4)
-amount = 1
-texture = ExtResource("2_6kdqs")
-randomness = 0.1
-gravity = Vector2(0, 0)
-
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+zoom = Vector2(3, 3)
