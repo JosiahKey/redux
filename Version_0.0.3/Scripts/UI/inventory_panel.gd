@@ -6,7 +6,7 @@ var template_inv_slot = preload("res://Version_0.0.3/Scenes/Templates/inventory_
 
 func _ready() -> void:
 	SignalBus.connect("item_collected", Callable(self, "_pull_inventory_data"))
-	SignalBus.connect("item_moved", Callable(self, "_push_inventory_data"), ConnectFlags.CONNECT_DEFERRED)
+	SignalBus.connect("item_added", Callable(self, "_push_inventory_data"), ConnectFlags.CONNECT_DEFERRED)
 	
 	_init_inventory()
 

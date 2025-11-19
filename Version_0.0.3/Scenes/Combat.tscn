@@ -1,10 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://byotebi1xyoe7"]
+[gd_scene load_steps=16 format=3 uid="uid://byotebi1xyoe7"]
 
 [ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
+[ext_resource type="Script" uid="uid://blj1iy4jv62a6" path="res://Version_0.0.3/Scripts/UI/combat.gd" id="1_mi7to"]
 [ext_resource type="Texture2D" uid="uid://csqdaq5q7mohx" path="res://Version_0.0.3/Assets/gui_assets/combat_panel.png" id="2_lm3ry"]
 [ext_resource type="SpriteFrames" uid="uid://dwbt0ujgfb83s" path="res://Version_0.0.3/Resources/AnimatedKnight.tres" id="3_cqrb7"]
 [ext_resource type="SpriteFrames" uid="uid://pesj6qtuh75c" path="res://Version_0.0.3/Resources/AnimatedGreenSlime.tres" id="4_46t2p"]
 [ext_resource type="Texture2D" uid="uid://cwlh86nqd8h0v" path="res://Version_0.0.3/Assets/slime_purple.png" id="5_g4qrr"]
+
+[sub_resource type="Gradient" id="Gradient_mi7to"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g4qrr"]
+gradient = SubResource("Gradient_mi7to")
+
+[sub_resource type="Gradient" id="Gradient_g4qrr"]
+offsets = PackedFloat32Array(0.0048076925, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aqiim"]
+gradient = SubResource("Gradient_g4qrr")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mi7to"]
 atlas = ExtResource("5_g4qrr")
@@ -42,7 +56,8 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[node name="Combat" type="Node2D"]
+script = ExtResource("1_mi7to")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -51,6 +66,7 @@ anchor_mode = 0
 offset_right = 361.0
 offset_bottom = 241.0
 texture = ExtResource("1_anr3a")
+metadata/_edit_lock_ = true
 
 [node name="Sub_Menus" type="HBoxContainer" parent="Background_Image"]
 layout_mode = 1
@@ -66,6 +82,35 @@ offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 2
+
+[node name="HP_Bar" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
+custom_minimum_size = Vector2(32, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lm3ry")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="Background_Image/Sub_Menus/HP_Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Health_Prog" type="TextureProgressBar" parent="Background_Image/Sub_Menus/HP_Bar/MarginContainer"]
+layout_mode = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_g4qrr")
+texture_progress = SubResource("GradientTexture1D_aqiim")
 
 [node name="Player_Panel" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
 custom_minimum_size = Vector2(256, 128)

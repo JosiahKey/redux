@@ -8,8 +8,8 @@ var stat_data = {
 	"Vitality": 1,
 	"Body": 1,
 	"Spirit": 1,
-	"Max_hp": 10,
-	"Current_hp": 10,
+	"Max_hp": 30,
+	"Current_hp": 30,
 	"Total_equipped_damage_min": 0,
 	"Total_equipped_damage_max": 0,
 	"Highest_equipped_min_strength": 0,
@@ -44,3 +44,7 @@ func _save_inv_data():
 	var inv_data_json = JSON.stringify(inv_data)
 	inv_data_file.store_string(inv_data_json)
 	inv_data_file.close()
+
+func on_hit(damage: int):
+	stat_data["Current_hp"] -= damage
+	SignalBus.health_changed.emit()

@@ -10,7 +10,7 @@ func _input(event: InputEvent) -> void:
 				PlayerData.inv_data[i]["Item"] = ItemGeneration()["item_id"]
 				print(JSON.stringify(PlayerData.inv_data))
 				SignalBus.item_collected.emit()
-				SignalBus.item_moved.emit()
+				SignalBus.item_added.emit()
 				break
 
 func ItemGeneration() -> Dictionary:
