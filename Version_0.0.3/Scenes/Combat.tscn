@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://byotebi1xyoe7"]
+[gd_scene load_steps=10 format=3 uid="uid://byotebi1xyoe7"]
 
 [ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
 [ext_resource type="Script" uid="uid://blj1iy4jv62a6" path="res://Version_0.0.3/Scripts/UI/combat.gd" id="1_mi7to"]
 [ext_resource type="Texture2D" uid="uid://csqdaq5q7mohx" path="res://Version_0.0.3/Assets/gui_assets/combat_panel.png" id="2_lm3ry"]
 [ext_resource type="SpriteFrames" uid="uid://dwbt0ujgfb83s" path="res://Version_0.0.3/Resources/AnimatedKnight.tres" id="3_cqrb7"]
-[ext_resource type="SpriteFrames" uid="uid://pesj6qtuh75c" path="res://Version_0.0.3/Resources/AnimatedGreenSlime.tres" id="4_46t2p"]
-[ext_resource type="Texture2D" uid="uid://cwlh86nqd8h0v" path="res://Version_0.0.3/Assets/slime_purple.png" id="5_g4qrr"]
+[ext_resource type="PackedScene" uid="uid://u18uhjlhb5op" path="res://Version_0.0.3/Scenes/enemy.tscn" id="5_mi7to"]
 
 [sub_resource type="Gradient" id="Gradient_mi7to"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
@@ -19,42 +18,6 @@ colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_aqiim"]
 gradient = SubResource("Gradient_g4qrr")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mi7to"]
-atlas = ExtResource("5_g4qrr")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4qrr"]
-atlas = ExtResource("5_g4qrr")
-region = Rect2(24, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aqiim"]
-atlas = ExtResource("5_g4qrr")
-region = Rect2(48, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcjnu"]
-atlas = ExtResource("5_g4qrr")
-region = Rect2(72, 24, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dpwsi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mi7to")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g4qrr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aqiim")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jcjnu")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
-}]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_mi7to")
@@ -235,50 +198,19 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Enemy_Sprites" type="HBoxContainer" parent="Background_Image"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 59.0
-offset_top = 56.0
-offset_right = 453.0
-offset_bottom = 156.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
+layout_mode = 0
+offset_left = 591.0
+offset_top = 446.0
+offset_right = 985.0
+offset_bottom = 517.0
+alignment = 2
 
-[node name="Enemy1" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
+[node name="Enemy" parent="Background_Image/Enemy_Sprites" instance=ExtResource("5_mi7to")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 0
 
-[node name="Sprite2D2" type="AnimatedSprite2D" parent="Background_Image/Enemy_Sprites/Enemy1"]
-position = Vector2(-5, 19)
-scale = Vector2(3, 3)
-sprite_frames = ExtResource("4_46t2p")
-autoplay = "default"
-flip_h = true
-
-[node name="Enemy2" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
+[node name="Enemy3" parent="Background_Image/Enemy_Sprites" instance=ExtResource("5_mi7to")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="Sprite2D2" type="AnimatedSprite2D" parent="Background_Image/Enemy_Sprites/Enemy2"]
-position = Vector2(-3, 20)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_dpwsi")
-autoplay = "default"
-flip_h = true
-
-[node name="Enemy3" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="Enemy4" type="PanelContainer" parent="Background_Image/Enemy_Sprites"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 0

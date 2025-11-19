@@ -9,12 +9,6 @@ func _ready() -> void:
 	
 	health_bar.max_value = PlayerData.stat_data["Max_hp"]
 	health_bar.value = PlayerData.stat_data["Current_hp"]
-	PlayerData.on_hit(20)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func update_health():
 	var newhp = PlayerData.stat_data["Current_hp"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://u18uhjlhb5op"]
+
+[ext_resource type="SpriteFrames" uid="uid://pesj6qtuh75c" path="res://Version_0.0.3/Resources/AnimatedGreenSlime.tres" id="1_h7qe2"]
+[ext_resource type="Script" uid="uid://xutvpgfnrtd" path="res://Version_0.0.3/Scripts/enemy.gd" id="1_ybw3w"]
+
+[sub_resource type="Gradient" id="Gradient_w7xwu"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_stdli"]
+gradient = SubResource("Gradient_w7xwu")
+
+[sub_resource type="Gradient" id="Gradient_1wk72"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_es28w"]
+gradient = SubResource("Gradient_1wk72")
+
+[node name="Enemy" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 72.0
+offset_bottom = 72.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("1_ybw3w")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -28.0
+offset_right = 32.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0, 0.18431373)
+
+[node name="Enemy_Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(36, 36)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("1_h7qe2")
+autoplay = "default"
+flip_h = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 1
+offset_left = 9.0
+offset_right = 63.0
+offset_bottom = 2.0
+value = 12.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_stdli")
+texture_progress = SubResource("GradientTexture1D_es28w")
