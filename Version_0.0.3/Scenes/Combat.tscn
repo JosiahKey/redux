@@ -70,6 +70,7 @@ theme_override_constants/margin_bottom = 6
 
 [node name="Health_Prog" type="TextureProgressBar" parent="Background_Image/Sub_Menus/HP_Bar/MarginContainer"]
 layout_mode = 2
+value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_g4qrr")
@@ -206,11 +207,6 @@ offset_bottom = 517.0
 alignment = 2
 
 [node name="Enemy" parent="Background_Image/Enemy_Sprites" instance=ExtResource("5_mi7to")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Enemy3" parent="Background_Image/Enemy_Sprites" instance=ExtResource("5_mi7to")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0

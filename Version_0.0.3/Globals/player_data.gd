@@ -32,6 +32,7 @@ var equipment_data = {
 
 func _ready() -> void:
 	_load_inv_data()
+	SignalBus.connect("hit_player", Callable(self,"on_hit"))
 
 func _load_inv_data():
 	var inv_data_file = FileAccess.open("user://inv_data.json", FileAccess.READ)

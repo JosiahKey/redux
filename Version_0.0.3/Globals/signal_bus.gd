@@ -17,3 +17,6 @@ signal item_added
 #combatui to playerstat
 @warning_ignore("unused_signal")
 signal health_changed
+#enemy to playerstats
+@warning_ignore("unused_signal")
+signal hit_player
