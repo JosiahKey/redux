@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhmxsbhhk3vps"
-path="res://.godot/imported/dagger_common.png-b6a93716033bbca86cdf72076a60cf26.ctex"
+uid="uid://cpo43rrlwi73g"
+path="res://.godot/imported/pants.png-da2bc1826d21798dc7146fe11c27547c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Version_0.0.3/Assets/item_assets/dagger_common.png"
-dest_files=["res://.godot/imported/dagger_common.png-b6a93716033bbca86cdf72076a60cf26.ctex"]
+source_file="res://Version_0.0.3/Assets/item_assets/pants.png"
+dest_files=["res://.godot/imported/pants.png-da2bc1826d21798dc7146fe11c27547c.ctex"]
 
 [params]
 

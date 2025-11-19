@@ -21,7 +21,7 @@ func _init_inventory():
 
 func _pull_inventory_data():
 	for n in grid_ref.get_children():
-		n.queue_free()
+		n.free()
 	
 	for i in PlayerData.inv_data.keys():
 		var inv_slot_new = template_inv_slot.instantiate()
@@ -30,6 +30,7 @@ func _pull_inventory_data():
 			var icon_texture = load("res://Version_0.0.3/Assets/item_assets/"+ item_name +".png")
 			inv_slot_new.get_node("Icon").set_texture(icon_texture)
 		grid_ref.add_child(inv_slot_new, true)
+
 
 func _push_inventory_data():
 	var ui_data: Dictionary = {}

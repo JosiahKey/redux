@@ -1,10 +1,19 @@
 extends Control
 
 @onready var sprite := $Enemy_Sprite
+@onready var enemy_stats: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass#SignalBus.hit_player.emit(20)
+	enemy_stats = {
+		"Max_hp": 10,
+		"Current_hp": 10,
+		"Damage_min": 1,
+		"Damage_max": 2,
+		"Accuracy": .5,
+		"Evasion": 0.0,
+		"PDR": 0.0
+	}
 
 #func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("ui_accept"):

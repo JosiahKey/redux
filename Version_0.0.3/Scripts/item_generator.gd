@@ -22,7 +22,7 @@ func ItemGeneration() -> Dictionary:
 		if GameData.item_data[new_item["item_id"]][i] != null:
 			new_item[i] = ItemDetermineStats(new_item["item_id"], new_item["item_rarity"], i)
 	
-	print(new_item)
+	#print(new_item)
 	return new_item
 
 func ItemDetermineType() -> String:

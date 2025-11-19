@@ -14,3 +14,6 @@ func update_health():
 	var newhp = PlayerData.stat_data["Current_hp"]
 	print(str(newhp) + "  " + str(health_bar.value))
 	tween.tween_property(health_bar, "value", newhp, 2.0)
+
+func player_attack_action():
+	

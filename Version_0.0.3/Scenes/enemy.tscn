@@ -47,7 +47,7 @@ sprite_frames = ExtResource("1_h7qe2")
 autoplay = "default"
 flip_h = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="Enemy_Hp" type="TextureProgressBar" parent="."]
 custom_minimum_size = Vector2(2, 2)
 layout_mode = 1
 offset_left = 9.0

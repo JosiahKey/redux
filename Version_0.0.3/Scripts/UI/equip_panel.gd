@@ -19,20 +19,27 @@ func _update_equipped_stats():
 	PlayerData.stat_data["Total_equipped_weight"] = 0
 	PlayerData.stat_data["Total_equipped_damage_min"] = 0
 	PlayerData.stat_data["Total_equipped_damage_max"] = 0
-	PlayerData.stat_data["Highest_equipped_min_strength"] = 0
+	PlayerData.stat_data["Bonus_hp"] = 0
+	PlayerData.stat_data["Accuracy"] = 0
+	PlayerData.stat_data["Evasion"] = 0
+	PlayerData.stat_data["PDR"] = 0
+
 
 	for i in PlayerData.equipment_data.keys():
 		if PlayerData.equipment_data[i] != null:
+			PlayerData.stat_data["Bonus_hp"] += GameData.item_data[
+									str(int(PlayerData.equipment_data[i]))]["Hp"]
+			PlayerData.stat_data["Accuracy"] += GameData.item_data[
+									str(int(PlayerData.equipment_data[i]))]["Accuracy"]
+			PlayerData.stat_data["Evasion"] += GameData.item_data[
+									str(int(PlayerData.equipment_data[i]))]["Evasion"]
+			PlayerData.stat_data["PDR"] += GameData.item_data[
+									str(int(PlayerData.equipment_data[i]))]["PDR"]
 			PlayerData.stat_data["Total_equipped_weight"] += GameData.item_data[
-									str(int(PlayerData.equipment_data[i]))]["weight"]
+									str(int(PlayerData.equipment_data[i]))]["Weight"]
 			PlayerData.stat_data["Total_equipped_damage_min"] += GameData.item_data[
-									str(int(PlayerData.equipment_data[i]))]["damage_min"]
+									str(int(PlayerData.equipment_data[i]))]["Damage_min"]
 			PlayerData.stat_data["Total_equipped_damage_max"] += GameData.item_data[
-									str(int(PlayerData.equipment_data[i]))]["damage_max"]
-			#only keep highest min strength
-			if PlayerData.stat_data["Highest_equipped_min_strength"] < GameData.item_data[
-									str(int(PlayerData.equipment_data[i]))]["min_strength"]:
-				PlayerData.stat_data["Highest_equipped_min_strength"] = GameData.item_data[
-										str(int(PlayerData.equipment_data[i]))]["min_strength"]
-	print(PlayerData.stat_data)
+									str(int(PlayerData.equipment_data[i]))]["Damage_max"]
+	PlayerData.stat_data["Total_hp"] = PlayerData.stat_data["Natural_hp"] + PlayerData.stat_data["Bonus_hp"]
 	SignalBus.equipment_updated.emit()

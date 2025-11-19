@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://2726ljvtct3q"]
+[gd_scene load_steps=4 format=3 uid="uid://2726ljvtct3q"]
 
 [ext_resource type="Texture2D" uid="uid://bv2dkupvewovd" path="res://gui_v0.1/Assets/main_panel_2.png" id="1_ld0t3"]
+[ext_resource type="Script" uid="uid://cohlc0ajtk8di" path="res://Version_0.0.3/Scripts/UI/stat_panel.gd" id="2_ld0t3"]
 [ext_resource type="Texture2D" uid="uid://qwykgegr7n1v" path="res://Version_0.0.3/Assets/gui_assets/inner_panel_grey.png" id="2_vj6ne"]
 
 [node name="Stat_Panel" type="NinePatchRect"]
@@ -12,6 +13,7 @@ patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
+script = ExtResource("2_ld0t3")
 metadata/_edit_lock_ = true
 
 [node name="Stat_Grid" type="GridContainer" parent="."]
@@ -72,12 +74,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Strength_Text" type="ColorRect" parent="Stat_Grid"]
+[node name="Accuracy_Text" type="ColorRect" parent="Stat_Grid"]
 custom_minimum_size = Vector2(72, 32)
 layout_mode = 2
 color = Color(0.09019608, 0.14901961, 0.07058824, 1)
 
-[node name="stat_label" type="Label" parent="Stat_Grid/Strength_Text"]
+[node name="stat_label" type="Label" parent="Stat_Grid/Accuracy_Text"]
 z_as_relative = false
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 1
@@ -86,12 +88,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Strength"
+text = "Accuracy"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Strength_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+[node name="Accuracy_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 texture = ExtResource("2_vj6ne")
@@ -100,7 +102,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="stat_num" type="Label" parent="Stat_Grid/Strength_Stat_Label"]
+[node name="stat_num" type="Label" parent="Stat_Grid/Accuracy_Stat_Label"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,6 +110,124 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Evasion_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Evasion_Text"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Evasion"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Evasion_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+texture = ExtResource("2_vj6ne")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Evasion_Stat_Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PDR_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/PDR_Text"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PDR"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PDR_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+texture = ExtResource("2_vj6ne")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/PDR_Stat_Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Palceholder_Text" type="ColorRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+color = Color(0.09019608, 0.14901961, 0.07058824, 1)
+
+[node name="stat_label" type="Label" parent="Stat_Grid/Palceholder_Text"]
+z_as_relative = false
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Palceholder_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+texture = ExtResource("2_vj6ne")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="stat_num" type="Label" parent="Stat_Grid/Palceholder_Stat_Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -141,126 +261,6 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="stat_num" type="Label" parent="Stat_Grid/Speed_Stat_Label"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Vitality_Text" type="ColorRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(72, 32)
-layout_mode = 2
-color = Color(0.09019608, 0.14901961, 0.07058824, 1)
-
-[node name="stat_label" type="Label" parent="Stat_Grid/Vitality_Text"]
-z_as_relative = false
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Vitality"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Vitality_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(96, 32)
-layout_mode = 2
-texture = ExtResource("2_vj6ne")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="stat_num" type="Label" parent="Stat_Grid/Vitality_Stat_Label"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Body_Text" type="ColorRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(72, 32)
-layout_mode = 2
-color = Color(0.09019608, 0.14901961, 0.07058824, 1)
-
-[node name="stat_label" type="Label" parent="Stat_Grid/Body_Text"]
-z_as_relative = false
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Body"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Body_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(96, 32)
-layout_mode = 2
-texture = ExtResource("2_vj6ne")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="stat_num" type="Label" parent="Stat_Grid/Body_Stat_Label"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Spirit_Text" type="ColorRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(72, 32)
-layout_mode = 2
-color = Color(0.09019608, 0.14901961, 0.07058824, 1)
-
-[node name="stat_label" type="Label" parent="Stat_Grid/Spirit_Text"]
-z_as_relative = false
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Spirit"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Spirit_Stat_Label" type="NinePatchRect" parent="Stat_Grid"]
-custom_minimum_size = Vector2(96, 32)
-layout_mode = 2
-texture = ExtResource("2_vj6ne")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="stat_num" type="Label" parent="Stat_Grid/Spirit_Stat_Label"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -3,27 +3,27 @@ extends Node
 var inv_data = {}
 
 var stat_data = {
-	"Strength": 1,
-	"Dexterity": 1,
-	"Vitality": 1,
-	"Body": 1,
-	"Spirit": 1,
-	"Max_hp": 30,
-	"Current_hp": 30,
-	"Total_equipped_damage_min": 0,
-	"Total_equipped_damage_max": 0,
-	"Highest_equipped_min_strength": 0,
-	"Total_equipped_weight": 0
+	"Natural_hp": 30,
+	"Bonus_hp": 0,
+	"Total_hp": 0,
+	"Current_hp": 29,
+	"Accuracy": 0,
+	"Evasion": 0,
+	"PDR": 0,
+	"Total_equipped_damage_min": 1,
+	"Total_equipped_damage_max": 1,
+	"Speed": 1,
+	"Total_equipped_weight": 1,
 }
 
 var equipment_data = {
-	"Head": 10001,
+	"Head": null,
 	"Neck": null,
 	"Shoulders": null,
 	"Chest": null,
 	"Mainhand": null,
 	"Offhand": null,
-	"Ring1": 10007,
+	"Ring1": null,
 	"Ring2": null,
 	"Waist": null,
 	"Legs": null,
@@ -32,6 +32,7 @@ var equipment_data = {
 
 func _ready() -> void:
 	_load_inv_data()
+	stat_data["Total_hp"] = stat_data["Natural_hp"] + stat_data["Bonus_hp"]
 	SignalBus.connect("hit_player", Callable(self,"on_hit"))
 
 func _load_inv_data():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://byotebi1xyoe7"]
+[gd_scene load_steps=11 format=3 uid="uid://byotebi1xyoe7"]
 
 [ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
 [ext_resource type="Script" uid="uid://blj1iy4jv62a6" path="res://Version_0.0.3/Scripts/UI/combat.gd" id="1_mi7to"]
 [ext_resource type="Texture2D" uid="uid://csqdaq5q7mohx" path="res://Version_0.0.3/Assets/gui_assets/combat_panel.png" id="2_lm3ry"]
 [ext_resource type="SpriteFrames" uid="uid://dwbt0ujgfb83s" path="res://Version_0.0.3/Resources/AnimatedKnight.tres" id="3_cqrb7"]
+[ext_resource type="Texture2D" uid="uid://qwykgegr7n1v" path="res://Version_0.0.3/Assets/gui_assets/inner_panel_grey.png" id="4_mi7to"]
 [ext_resource type="PackedScene" uid="uid://u18uhjlhb5op" path="res://Version_0.0.3/Scenes/enemy.tscn" id="5_mi7to"]
 
 [sub_resource type="Gradient" id="Gradient_mi7to"]
@@ -138,9 +139,29 @@ offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+texture_normal = ExtResource("4_mi7to")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -11.5
+offset_right = 110.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "<Attack>"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
 layout_mode = 2
