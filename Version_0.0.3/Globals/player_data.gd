@@ -4,6 +4,7 @@ var inv_data = {}
 
 var stat_data = {
 	"Natural_hp": 30,
+	"Strength": 0,
 	"Bonus_hp": 0,
 	"Total_hp": 0,
 	"Current_hp": 29,
@@ -14,6 +15,7 @@ var stat_data = {
 	"Total_equipped_damage_max": 1,
 	"Speed": 1,
 	"Total_equipped_weight": 1,
+	"Experience": 0,
 }
 
 var equipment_data = {
