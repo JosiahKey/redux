@@ -35,7 +35,7 @@ var equipment_data = {
 func _ready() -> void:
 	_load_inv_data()
 	stat_data["Total_hp"] = stat_data["Natural_hp"] + stat_data["Bonus_hp"]
-	SignalBus.connect("hit_player", Callable(self,"on_hit"))
+	
 
 func _load_inv_data():
 	var inv_data_file = FileAccess.open("user://inv_data.json", FileAccess.READ)
@@ -48,7 +48,3 @@ func _save_inv_data():
 	var inv_data_json = JSON.stringify(inv_data)
 	inv_data_file.store_string(inv_data_json)
 	inv_data_file.close()
-
-func on_hit(damage: int):
-	stat_data["Current_hp"] -= damage
-	SignalBus.health_changed.emit()

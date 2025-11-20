@@ -14,9 +14,12 @@ signal equipment_updated
 #temgenerator to inventory
 @warning_ignore("unused_signal")
 signal item_added
-#combatui to playerstat
-@warning_ignore("unused_signal")
-signal health_changed
-#enemy to playerstats
+#enemy to player stats
 @warning_ignore("unused_signal")
 signal hit_player
+#player to enemy
+@warning_ignore("unused_signal")
+signal start_enemy_turn
+#enemy to player
+@warning_ignore("unused_signal")
+signal end_enemy_turn

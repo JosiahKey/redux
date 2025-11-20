@@ -3,32 +3,55 @@ extends Node2D
 @onready var health_bar: TextureProgressBar = $Background_Image/Sub_Menus/HP_Bar/MarginContainer/Health_Prog
 @onready var player_spr: AnimatedSprite2D = $Background_Image/Player/Player_Sprite
 @onready var player_turn_ind :GPUParticles2D = $Background_Image/Player/Player_Turn_Indicator
+@onready var emitter: GPUParticles2D = $Background_Image/Player/Hit_Indicator
+@onready var enemy := $Background_Image/Enemy_Sprites/Enemy
+@onready var floating_text := preload("res://Version_0.0.3/Scenes/UI/floating_text.tscn")
 var players_turn: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBus.connect("health_changed", Callable(self, "update_health"))
+	SignalBus.connect("hit_player", Callable(self,"on_hit"))
+	SignalBus.connect("end_enemy_turn", Callable(self,"ready_player_turn"))
 	
 	health_bar.max_value = PlayerData.stat_data["Total_hp"]
 	health_bar.value = PlayerData.stat_data["Current_hp"]
+	ready_player_turn()
 
-func _process(_delta: float) -> void:
+func ready_player_turn():
+	player_turn_ind.visible = true
+	players_turn = true
+
+func _on_texture_button_pressed() -> void:
 	if players_turn:
-		player_turn_ind.visible = true
-	else:
-		player_turn_ind.visible = false
+		players_turn = false
+		player_attack_action()
 
-func update_health():
+func player_attack_action():
+	player_spr.play("attack")
+	randomize()
+	enemy.on_hit(randi_range(PlayerData.stat_data[
+		"Total_equipped_damage_min"],PlayerData.stat_data["Total_equipped_damage_max"]))
+	await get_tree().create_timer(1.0).timeout
+	player_turn_ind.visible = false
+	SignalBus.start_enemy_turn.emit()
+
+func on_hit(damage: int):
+	#deal damage
+	PlayerData.stat_data["Current_hp"] -= damage
+	#move hp bar
 	var tween = get_tree().create_tween()
 	var newhp = PlayerData.stat_data["Current_hp"]
 	print(str(newhp) + "  " + str(health_bar.value))
-	tween.tween_property(health_bar, "value", newhp, 2.0)
-
-func player_attack_action():
-	if players_turn:
-		player_spr.play("attack")
-
-
-func _on_texture_button_pressed() -> void:
-	player_attack_action()
-	players_turn = false
+	tween.tween_property(health_bar, "value", newhp, 0.5)
+	#animate floating text
+	var text = floating_text.instantiate()
+	text.amount = damage
+	text.type = "damage"
+	player_spr.add_child(text)
+	##play damage sprite animation
+	player_spr.play("damaged")
+	##vfx 1shot
+	emitter.emitting = true
+	
+func _on_player_sprite_animation_finished() -> void:
+	player_spr.play("idle")

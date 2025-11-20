@@ -1,28 +1,63 @@
 extends Control
 
 @onready var sprite := $Enemy_Sprite
-@onready var enemy_stats: Dictionary = {}
+@onready var hp_bar: TextureProgressBar = $Enemy_Hp
+@onready var emitter := $Hit_Indicator
+@onready var enemy_turn_ind := $Turn_Indicator
 @onready var floating_text := preload("res://Version_0.0.3/Scenes/UI/floating_text.tscn")
 
-# Called when the node enters the scene tree for the first time.
+@onready var enemy_stats: Dictionary = {}
+
 func _ready() -> void:
+	SignalBus.connect("start_enemy_turn", Callable(self, "ready_enemy_turn"))
+	
 	enemy_stats = {
 		"Max_hp": 10,
 		"Current_hp": 10,
-		"Damage_min": 1,
-		"Damage_max": 2,
+		"Damage_min": 5,
+		"Damage_max": 10,
 		"Accuracy": .5,
 		"Evasion": 0.0,
-		"PDR": 0.0
+		"PDR": 0.0,
+		"EXP": 10.0
 	}
+	hp_bar.max_value = enemy_stats["Max_hp"]
+	hp_bar.value = enemy_stats["Current_hp"]
+
+func ready_enemy_turn():
+	if enemy_stats["Current_hp"] > 0:
+		enemy_turn_ind.visible = true
+		await get_tree().create_timer(2.0).timeout
+		enemy_action("attack")
+		enemy_turn_ind.visible = false
+		SignalBus.end_enemy_turn.emit()
+	else:
+		#make note of rewards
+		self.visible = false
+
+func enemy_action(action:String):
+	match action:
+		"attack":
+			randomize()
+			sprite.play("attack")
+			await get_tree().create_timer(0.5).timeout
+			SignalBus.hit_player.emit(randi_range(enemy_stats["Damage_min"],enemy_stats["Damage_max"]))
 
 func on_hit(damage):
+	#deal damage
+	enemy_stats["Current_hp"] -= damage
+	#move hp bar
+	var tween = get_tree().create_tween()
+	tween.tween_property(hp_bar, "value", enemy_stats["Current_hp"], 0.5)
+	#animate floating text
 	var text = floating_text.instantiate()
 	text.amount = damage
 	text.type = "damage"
 	sprite.add_child(text)
+	#play damage sprite animation
+	sprite.play("damaged")
+	#vfx 1shot
+	emitter.emitting = true
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		on_hit(30)
-		#SignalBus.hit_player.emit(20)
+func _on_enemy_sprite_animation_finished() -> void:
+		sprite.play("default")
