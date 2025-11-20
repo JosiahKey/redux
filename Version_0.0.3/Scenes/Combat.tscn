@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://byotebi1xyoe7"]
+[gd_scene load_steps=24 format=3 uid="uid://byotebi1xyoe7"]
 
 [ext_resource type="Texture2D" uid="uid://nd5e0klyfh44" path="res://Version_0.0.3/Assets/combat_forest_background.png" id="1_anr3a"]
 [ext_resource type="Script" uid="uid://blj1iy4jv62a6" path="res://Version_0.0.3/Scripts/UI/combat.gd" id="1_mi7to"]
 [ext_resource type="Texture2D" uid="uid://csqdaq5q7mohx" path="res://Version_0.0.3/Assets/gui_assets/combat_panel.png" id="2_lm3ry"]
 [ext_resource type="SpriteFrames" uid="uid://dwbt0ujgfb83s" path="res://Version_0.0.3/Resources/AnimatedKnight.tres" id="3_cqrb7"]
-[ext_resource type="Texture2D" uid="uid://qwykgegr7n1v" path="res://Version_0.0.3/Assets/gui_assets/inner_panel_grey.png" id="4_mi7to"]
+[ext_resource type="Texture2D" uid="uid://bs1lptkd53ppl" path="res://Version_0.0.3/Assets/gui_assets/combat_action.png" id="4_aqiim"]
+[ext_resource type="Texture2D" uid="uid://betaefr4qj004" path="res://Version_0.0.3/Assets/gui_assets/Cursor_Select.png" id="5_jcjnu"]
 [ext_resource type="PackedScene" uid="uid://u18uhjlhb5op" path="res://Version_0.0.3/Scenes/enemy.tscn" id="5_mi7to"]
 [ext_resource type="Texture2D" uid="uid://b7m0o5gah5l8t" path="res://Version_0.0.3/Assets/VFX/floaty_32.png" id="6_g4qrr"]
 
@@ -21,6 +22,42 @@ colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_aqiim"]
 gradient = SubResource("Gradient_g4qrr")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpwsi"]
+atlas = ExtResource("5_jcjnu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itjuw"]
+atlas = ExtResource("5_jcjnu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg7yd"]
+atlas = ExtResource("5_jcjnu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhxhg"]
+atlas = ExtResource("5_jcjnu")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjnp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpwsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itjuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg7yd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhxhg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jcjnu"]
 particles_animation = true
 particles_anim_h_frames = 7
@@ -34,8 +71,9 @@ angle_max = 360.00003
 gravity = Vector3(0, -50, 0)
 radial_accel_min = -2.2351742e-06
 radial_accel_max = -2.2351742e-06
-scale_max = 4.0
-color = Color(0.5471306, 0.5786227, 0.2604166, 1)
+scale_min = 3.0
+scale_max = 6.0
+color = Color(0.65941083, 0.7186916, 0.50382674, 1)
 anim_speed_max = 1.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4qrr"]
@@ -147,8 +185,12 @@ grow_vertical = 2
 layout_mode = 2
 text = "<player name>"
 
-[node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Player_Panel/VBoxContainer"]
+[node name="Combat_Hp_Label" type="Label" parent="Background_Image/Sub_Menus/Player_Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "<hp: xx/xx>"
 
 [node name="Label3" type="Label" parent="Background_Image/Sub_Menus/Player_Panel/VBoxContainer"]
@@ -168,7 +210,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background_Image/Sub_Menus/Action_Panel"]
+[node name="Actions_Container" type="VBoxContainer" parent="Background_Image/Sub_Menus/Action_Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -182,15 +224,25 @@ offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureButton" type="TextureButton" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+[node name="TextureButton" type="Button" parent="Background_Image/Sub_Menus/Action_Panel/Actions_Container"]
 layout_mode = 2
 size_flags_vertical = 3
 action_mode = 0
-texture_normal = ExtResource("4_mi7to")
-ignore_texture_size = true
-stretch_mode = 0
 
-[node name="Label" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer/TextureButton"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Background_Image/Sub_Menus/Action_Panel/Actions_Container/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_aqiim")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Label" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/Actions_Container/TextureButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -203,20 +255,29 @@ offset_right = 110.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "<Attack>"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "Attack"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
-layout_mode = 2
-text = "<Defend>"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background_Image/Sub_Menus/Action_Panel/Actions_Container/TextureButton"]
+position = Vector2(-4, 12)
+sprite_frames = SubResource("SpriteFrames_qjnp5")
+autoplay = "default"
 
-[node name="Label3" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+[node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/Actions_Container"]
 layout_mode = 2
-text = "<Ability>"
+text = "<placeholder>"
 
-[node name="Label4" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/VBoxContainer"]
+[node name="Label3" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/Actions_Container"]
 layout_mode = 2
-text = "<Run>"
+text = "<placeholder>"
+
+[node name="Label4" type="Label" parent="Background_Image/Sub_Menus/Action_Panel/Actions_Container"]
+layout_mode = 2
+text = "<placeholder>"
 
 [node name="Player_Panel3" type="NinePatchRect" parent="Background_Image/Sub_Menus"]
 custom_minimum_size = Vector2(256, 128)
@@ -247,13 +308,15 @@ text = "<green slime>"
 
 [node name="Label2" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
 layout_mode = 2
-text = "<purple slime>"
+text = "<placeholder>"
 
 [node name="Label3" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
 layout_mode = 2
+text = "<placeholder>"
 
 [node name="Label4" type="Label" parent="Background_Image/Sub_Menus/Player_Panel3/VBoxContainer"]
 layout_mode = 2
+text = "<placeholder>"
 
 [node name="Enemy_Sprites" type="HBoxContainer" parent="Background_Image"]
 layout_mode = 0
@@ -310,5 +373,5 @@ sprite_frames = ExtResource("3_cqrb7")
 animation = &"damaged"
 autoplay = "idle"
 
-[connection signal="pressed" from="Background_Image/Sub_Menus/Action_Panel/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Background_Image/Sub_Menus/Action_Panel/Actions_Container/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="animation_finished" from="Background_Image/Player/Player_Sprite" to="." method="_on_player_sprite_animation_finished"]

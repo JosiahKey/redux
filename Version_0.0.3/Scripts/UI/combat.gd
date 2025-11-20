@@ -1,10 +1,12 @@
 extends CanvasLayer
 
 @onready var health_bar: TextureProgressBar = $Background_Image/Sub_Menus/HP_Bar/MarginContainer/Health_Prog
+@onready var health_label: Label = $Background_Image/Sub_Menus/Player_Panel/VBoxContainer/Combat_Hp_Label
 @onready var player_spr: AnimatedSprite2D = $Background_Image/Player/Player_Sprite
 @onready var player_turn_ind :GPUParticles2D = $Background_Image/Player/Player_Turn_Indicator
 @onready var emitter: GPUParticles2D = $Background_Image/Player/Hit_Indicator
 @onready var enemy := $Background_Image/Enemy_Sprites/Enemy
+@onready var actions_container := $Background_Image/Sub_Menus/Action_Panel/Actions_Container
 @onready var floating_text := preload("res://Version_0.0.3/Scenes/UI/floating_text.tscn")
 var players_turn: bool = true
 
@@ -18,6 +20,7 @@ func _ready() -> void:
 	
 	health_bar.max_value = PlayerData.stat_data["Total_hp"]
 	health_bar.value = PlayerData.stat_data["Current_hp"]
+	health_label.text = "HP: " + str(PlayerData.stat_data["Total_hp"]) + " / " + str(PlayerData.stat_data["Current_hp"])
 	ready_player_turn()
 
 func combat_victory():
@@ -31,6 +34,7 @@ func combat_victory():
 
 func ready_player_turn():
 	if PlayerData.stat_data["Current_hp"] > 0:
+		actions_container.visible = true
 		player_turn_ind.visible = true
 		players_turn = true
 	else:
@@ -42,17 +46,22 @@ func _on_texture_button_pressed() -> void:
 		player_attack_action()
 
 func player_attack_action():
+	player_turn_ind.visible = false
+	actions_container.visible = false
+	await get_tree().create_timer(0.7).timeout
 	player_spr.play("attack")
+	await get_tree().create_timer(0.3).timeout
 	randomize()
 	enemy.on_hit(randi_range(PlayerData.stat_data[
 		"Total_equipped_damage_min"],PlayerData.stat_data["Total_equipped_damage_max"]))
-	await get_tree().create_timer(1.0).timeout
-	player_turn_ind.visible = false
+	await get_tree().create_timer(0.3).timeout
 	SignalBus.start_enemy_turn.emit()
 
 func on_hit(damage: int):
 	#deal damage
 	PlayerData.stat_data["Current_hp"] -= damage
+	#update hp label
+	health_label.text = "HP: " + str(PlayerData.stat_data["Total_hp"]) + " / " + str(PlayerData.stat_data["Current_hp"])
 	#move hp bar
 	var tween = get_tree().create_tween()
 	var newhp = PlayerData.stat_data["Current_hp"]

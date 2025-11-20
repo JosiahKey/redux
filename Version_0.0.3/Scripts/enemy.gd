@@ -27,10 +27,11 @@ func _ready() -> void:
 func ready_enemy_turn():
 	if enemy_stats["Current_hp"] > 0:
 		enemy_turn_ind.visible = true
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(1.5).timeout
 		enemy_action("attack")
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(0.3).timeout
 		enemy_turn_ind.visible = false
+		await get_tree().create_timer(0.5).timeout
 		SignalBus.end_enemy_turn.emit()
 	else:
 		PlayerData.stat_data["Experience"] += enemy_stats["EXP"]
