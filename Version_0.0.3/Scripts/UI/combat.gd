@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var health_bar: TextureProgressBar = $Background_Image/Sub_Menus/HP_Bar/MarginContainer/Health_Prog
 @onready var player_spr: AnimatedSprite2D = $Background_Image/Player/Player_Sprite
@@ -10,16 +10,31 @@ var players_turn: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameState.state = "Combat"
+	
 	SignalBus.connect("hit_player", Callable(self,"on_hit"))
 	SignalBus.connect("end_enemy_turn", Callable(self,"ready_player_turn"))
+	SignalBus.connect("combat_victory", Callable(self, "combat_victory"))
 	
 	health_bar.max_value = PlayerData.stat_data["Total_hp"]
 	health_bar.value = PlayerData.stat_data["Current_hp"]
 	ready_player_turn()
 
+func combat_victory():
+	#play fanfare
+	#victory dance
+	#reward popup
+	#press button on pupup to end combat
+	#fade out
+	GameState.state = ""
+	self.queue_free()
+
 func ready_player_turn():
-	player_turn_ind.visible = true
-	players_turn = true
+	if PlayerData.stat_data["Current_hp"] > 0:
+		player_turn_ind.visible = true
+		players_turn = true
+	else:
+		SignalBus.game_over.emit()
 
 func _on_texture_button_pressed() -> void:
 	if players_turn:

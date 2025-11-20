@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw7hxlrxq4724"]
+[gd_scene load_steps=6 format=3 uid="uid://cw7hxlrxq4724"]
 
 [ext_resource type="Script" uid="uid://dgjfxf658upag" path="res://Version_0.0.3/Scripts/main.gd" id="1_b4pd7"]
+[ext_resource type="PackedScene" uid="uid://2a4avmrkge65" path="res://Version_0.0.3/Scenes/UI/controls_hint.tscn" id="2_2jltt"]
 [ext_resource type="PackedScene" uid="uid://cif2nqjkhtabc" path="res://Version_0.0.3/Scenes/UI/GUI.tscn" id="2_sadeq"]
 [ext_resource type="Script" uid="uid://cjjssbwmlkdnt" path="res://Version_0.0.3/Scripts/item_generator.gd" id="3_2jltt"]
 [ext_resource type="AudioStream" uid="uid://cdohpou0dlluv" path="res://Version_0.0.3/Assets/music/untitled.mp3" id="4_0342n"]
@@ -8,7 +9,9 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_b4pd7")
 
-[node name="GUI" parent="." instance=ExtResource("2_sadeq")]
+[node name="ControlsHint" parent="." instance=ExtResource("2_2jltt")]
+
+[node name="CharacterSheet" parent="." instance=ExtResource("2_sadeq")]
 
 [node name="LevelDock" type="Node2D" parent="."]
 

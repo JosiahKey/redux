@@ -27,13 +27,15 @@ func _ready() -> void:
 func ready_enemy_turn():
 	if enemy_stats["Current_hp"] > 0:
 		enemy_turn_ind.visible = true
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(0.7).timeout
 		enemy_action("attack")
+		await get_tree().create_timer(0.7).timeout
 		enemy_turn_ind.visible = false
 		SignalBus.end_enemy_turn.emit()
 	else:
-		#make note of rewards
+		PlayerData.stat_data["Experience"] += enemy_stats["EXP"]
 		self.visible = false
+		SignalBus.combat_victory.emit()
 
 func enemy_action(action:String):
 	match action:

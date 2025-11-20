@@ -19,42 +19,43 @@ func _ready():
 	update_highlight_visibility(Vector2.ZERO)
 
 func _physics_process(_delta):
-	var input_direction = Vector2.ZERO
+	if GameState.state != "Combat":
+		var input_direction = Vector2.ZERO
 
-	# Check for input and set the input direction
-	if Input.is_action_pressed("ui_up"):
-		input_direction.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		input_direction.y += 1
-	if Input.is_action_pressed("ui_left"):
-		input_direction.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		input_direction.x += 1
-	
-	#Flip Sprite
-	if input_direction.x > 0:
-		player_sprite.flip_h = false
-	elif input_direction.x < 0:
-		player_sprite.flip_h = true
-	
-	#Play anime
-	if input_direction == Vector2.ZERO:
-		player_sprite.play("idle")
-	else:
-		player_sprite.play("run")
+		# Check for input and set the input direction
+		if Input.is_action_pressed("ui_up"):
+			input_direction.y -= 1
+		if Input.is_action_pressed("ui_down"):
+			input_direction.y += 1
+		if Input.is_action_pressed("ui_left"):
+			input_direction.x -= 1
+		if Input.is_action_pressed("ui_right"):
+			input_direction.x += 1
+		
+		#Flip Sprite
+		if input_direction.x > 0:
+			player_sprite.flip_h = false
+		elif input_direction.x < 0:
+			player_sprite.flip_h = true
+		
+		#Play anime
+		if input_direction == Vector2.ZERO:
+			player_sprite.play("idle")
+		else:
+			player_sprite.play("run")
 
-	# Normalize the input direction to avoid faster diagonal movement
-	if input_direction != Vector2.ZERO:
-		input_direction = input_direction.normalized()
-	
-	# Set the velocity based on input direction
-	velocity = input_direction * speed_factor
+		# Normalize the input direction to avoid faster diagonal movement
+		if input_direction != Vector2.ZERO:
+			input_direction = input_direction.normalized()
+		
+		# Set the velocity based on input direction
+		velocity = input_direction * speed_factor
 
-	# Move the character using move_and_slide
-	move_and_slide()
+		# Move the character using move_and_slide
+		move_and_slide()
 
-	# Update highlight visibility based on input direction
-	update_highlight_visibility(input_direction)
+		# Update highlight visibility based on input direction
+		update_highlight_visibility(input_direction)
 
 # Function to update the visibility of the highlight ColorRects
 func update_highlight_visibility(direction: Vector2):

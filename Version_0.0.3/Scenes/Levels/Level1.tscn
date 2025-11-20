@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b3t2blau1p1jc"]
+[gd_scene load_steps=7 format=4 uid="uid://b3t2blau1p1jc"]
 
 [ext_resource type="Texture2D" uid="uid://cjf6assjhuimv" path="res://imported/zAssets/Tiles/world_tileset.png" id="1_2ktb1"]
 [ext_resource type="PackedScene" uid="uid://pb7sopptyild" path="res://Version_0.0.3/Scenes/Templates/next_level.tscn" id="2_bss6w"]
 [ext_resource type="PackedScene" uid="uid://dvqnvqyxj217n" path="res://Version_0.0.3/Scenes/Templates/player.tscn" id="3_pi0gu"]
+[ext_resource type="PackedScene" uid="uid://bdwvpob8we7mh" path="res://Version_0.0.3/Scenes/Templates/enemy_interactable.tscn" id="4_bss6w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hjmfq"]
 texture = ExtResource("1_2ktb1")
@@ -185,3 +186,6 @@ position = Vector2(216, -8)
 
 [node name="Player" parent="." instance=ExtResource("3_pi0gu")]
 position = Vector2(-40, -24)
+
+[node name="enemy_interactable" parent="." instance=ExtResource("4_bss6w")]
+position = Vector2(152, -8)

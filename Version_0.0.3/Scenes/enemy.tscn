@@ -97,6 +97,7 @@ colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
 gradient = SubResource("Gradient_1wk72")
 
 [node name="Enemy" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 72.0
@@ -137,7 +138,7 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("1_h7qe2")
 animation = &"attack"
 autoplay = "default"
-frame = 7
+frame = 6
 frame_progress = 1.0
 flip_h = true
 metadata/_edit_lock_ = true

@@ -2,10 +2,15 @@ extends Node2D
 
 #the item genreation below is(should be) totally static and could be 
 # in any script file just testing it here for now
+func _ready() -> void:
+	SignalBus.connect("item_generated", Callable(self, "generate_item"))
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debuggenerateitem"):
-		for i in PlayerData.inv_data.keys():
+		generate_item()
+
+func generate_item():
+	for i in PlayerData.inv_data.keys():
 			if PlayerData.inv_data[i]["Item"] == null:
 				PlayerData.inv_data[i]["Item"] = ItemGeneration()["item_id"]
 				print(JSON.stringify(PlayerData.inv_data))

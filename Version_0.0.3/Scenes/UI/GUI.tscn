@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bo5qufg8u75ox" path="res://Version_0.0.3/Scenes/UI/equip_panel.tscn" id="8_8hch5"]
 [ext_resource type="PackedScene" uid="uid://2726ljvtct3q" path="res://Version_0.0.3/Scenes/UI/stat_panel.tscn" id="9_7w82k"]
 
-[node name="GUI" type="CanvasLayer"]
+[node name="CharacterSheet" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_8t5v5")
 
