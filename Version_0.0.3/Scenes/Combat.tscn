@@ -71,8 +71,8 @@ angle_max = 360.00003
 gravity = Vector3(0, -50, 0)
 radial_accel_min = -2.2351742e-06
 radial_accel_max = -2.2351742e-06
-scale_min = 3.0
-scale_max = 6.0
+scale_min = 2.0
+scale_max = 3.0
 color = Color(0.65941083, 0.7186916, 0.50382674, 1)
 anim_speed_max = 1.0
 

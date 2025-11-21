@@ -1,5 +1,15 @@
 extends TextureRect
 #this is sperate from equipment item so that we can deal with consumables and stackables later
+@onready var tooltip = preload("res://Version_0.0.3/Scenes/Templates/tooltip.tscn")
+var new_tooltip
+
+func _ready() -> void:
+	new_tooltip = tooltip.instantiate()
+	new_tooltip.origin = "Inventory"
+	new_tooltip.slot = get_parent().name
+#
+	new_tooltip.position = get_parent().global_position - Vector2 (300,0)
+	add_child(new_tooltip)
 
 func _get_drag_data(at_position: Vector2):
 	var inv_slot = get_parent().get_name()
@@ -61,3 +71,13 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	#update texture and data of target
 	PlayerData.inv_data[target_equipment_type]["Item"] = data["origin_item_id"]
 	texture = data["origin_texture"]
+
+
+func _on_mouse_entered() -> void:
+	await get_tree().create_timer(0.1).timeout
+	if has_node("Tooltip") and get_node("Tooltip").valid:
+		get_node("Tooltip").show()
+
+func _on_mouse_exited() -> void:
+	if has_node("Tooltip"):
+		get_node("Tooltip").hide()

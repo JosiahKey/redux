@@ -11,3 +11,6 @@ offset_bottom = 32.0
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("1_i24hc")
+
+[connection signal="mouse_entered" from="Icon" to="Icon" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Icon" to="Icon" method="_on_mouse_exited"]

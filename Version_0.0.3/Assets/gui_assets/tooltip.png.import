@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deu3iyrmwwioh"
-path="res://.godot/imported/item_slot_grey.png-8b803c47e4b29aeba29eb981690b0e2b.ctex"
+path="res://.godot/imported/tooltip.png-667dcfd3cec7c09781b35ee531ebe415.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Version_0.0.3/Assets/gui_assets/item_slot_grey.png"
-dest_files=["res://.godot/imported/item_slot_grey.png-8b803c47e4b29aeba29eb981690b0e2b.ctex"]
+source_file="res://Version_0.0.3/Assets/gui_assets/tooltip.png"
+dest_files=["res://.godot/imported/tooltip.png-667dcfd3cec7c09781b35ee531ebe415.ctex"]
 
 [params]
 
