@@ -55,7 +55,6 @@ func compare_items(item_id, stat_name, stat_value) -> int:
 		var equipped_item_stat_value = GameData.item_data[str(int(equipped_item_id))][stat_name]
 		stat_diff = stat_value - equipped_item_stat_value
 		if int(PlayerData.equipment_data[slot]) == int(item_id):
-			print(str(item_id) + " inside flag " + str(PlayerData.equipment_data[slot]))
 			return 0
 	else:
 		stat_diff = stat_value
