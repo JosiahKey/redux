@@ -33,6 +33,12 @@ func item_popup(slot_pos: Rect2i, slot: String, origin: String):
 					elif stat_diff < 0:
 						get_node("CanvasLayer/Tooltip/N/M/V/Stat" + str(ui_iterator) + "/Diff").text = str(stat_diff) + "       "
 						get_node("CanvasLayer/Tooltip/N/M/V/Stat" + str(ui_iterator) + "/Diff").add_theme_color_override("font_color", Color("ff3131"))
+					else:
+						get_node("CanvasLayer/Tooltip/N/M/V/Stat" + str(ui_iterator) + "/Diff").text = "0       "
+						get_node("CanvasLayer/Tooltip/N/M/V/Stat" + str(ui_iterator) + "/Diff").add_theme_color_override("font_color", Color("003131ff"))
+				else:
+					get_node("CanvasLayer/Tooltip/N/M/V/Stat" + str(ui_iterator) + "/Diff").text = "0       "
+					get_node("CanvasLayer/Tooltip/N/M/V/Stat" + str(ui_iterator) + "/Diff").add_theme_color_override("font_color", Color("003131ff"))
 				ui_iterator += 1
 		%Tooltip.popup(Rect2i(slot_pos.position - Vector2i(328,200), %Tooltip.size))
 	else:
@@ -48,6 +54,9 @@ func compare_items(item_id, stat_name, stat_value) -> int:
 		var equipped_item_id = PlayerData.equipment_data[slot]
 		var equipped_item_stat_value = GameData.item_data[str(int(equipped_item_id))][stat_name]
 		stat_diff = stat_value - equipped_item_stat_value
+		if int(PlayerData.equipment_data[slot]) == int(item_id):
+			print(str(item_id) + " inside flag " + str(PlayerData.equipment_data[slot]))
+			return 0
 	else:
 		stat_diff = stat_value
 	return int(stat_diff)
