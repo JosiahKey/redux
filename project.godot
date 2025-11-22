@@ -20,6 +20,7 @@ SignalBus="*res://Version_0.0.3/Globals/signal_bus.gd"
 GameData="*res://Version_0.0.3/Globals/game_data.gd"
 PlayerData="*res://Version_0.0.3/Globals/player_data.gd"
 GameState="*res://Version_0.0.3/Globals/game_state.gd"
+Tooltip="*res://Version_0.0.3/Globals/tooltip.tscn"
 
 [display]
 

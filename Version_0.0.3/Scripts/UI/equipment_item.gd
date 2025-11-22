@@ -1,5 +1,9 @@
 extends TextureRect
 
+func _ready() -> void:
+	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
+	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
+
 func _get_drag_data(at_position: Vector2):
 	var equipment_type = get_parent().get_name()
 	if PlayerData.equipment_data[equipment_type] != null:
@@ -56,3 +60,9 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	texture = data["origin_texture"]
 	
 	SignalBus.item_equipped.emit()
+
+func _on_mouse_entered() -> void:
+	Tooltip.item_popup(Rect2i(Vector2i(global_position) + Vector2i(362,0), Vector2i(size)), get_parent().get_name(), "Equip_Panel")
+
+func _on_mouse_exited() -> void:
+	Tooltip.hide_item_popup()
